@@ -1,7 +1,8 @@
 html,
 body {
   position: relative;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 body {
   font-family: "Ubuntu", sans-serif;
@@ -10,7 +11,7 @@ body {
 }
 .swiper-container {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   margin-left: auto;
   margin-right: auto;
 }
@@ -110,6 +111,14 @@ footer {
   font-weight: 500;
   background: rgba(0, 0, 0, 0.5);
   border-top: 1px solid #76d48f;
+}
+
+@media (max-width: 480px) {
+  html,
+  body,
+  .swiper-container {
+    height: calc(100vh - 56px);
+  }
 }
 
 /*TODO: rethink logo-header {width & height}*/
