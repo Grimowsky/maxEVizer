@@ -1,47 +1,120 @@
-html, body {
-    position: relative;
-    height: 100%;
+html,
+body {
+  position: relative;
+  height: 100%;
 }
 body {
-    background: #eee;
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    color:#000;
-    margin: 0;
-    padding: 0;
+  font-family: "Ubuntu", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 .swiper-container {
-    width: 100%;
-    height: 100vh;
-    margin-left: auto;
-    margin-right: auto;
+  width: 100%;
+  height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
+  text-align: center;
+  /*font-size: 18px;*/
+  /*background: #fff;*/
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
 }
 
 section:nth-of-type(1) span {
-    margin: 10px;
+  margin: 10px;
 }
 
-
-.slide-one > h1 {
-    font-size: 100px;
+.slide-one {
+  display: flex;
+  justify-content: space-between;
+  background-image: url("./img/bg-lines@2x.png");
+  background-size: cover;
+  background-position: center, center;
 }
+
+.slide-one-text {
+  color: #fff;
+  width: 100%;
+  font-size: 28px;
+  letter-spacing: 2px;
+  text-align: left;
+}
+.slide-one-text > p {
+  padding-left: 15px;
+}
+
+.slide-one-text > div {
+  padding-left: 15px;
+  padding-bottom: 150px;
+}
+
+.slide-one-text > p:after {
+  height: 2px;
+  margin-top: 20px;
+  display: block;
+  width: 35%;
+  background: #fff;
+  content: "";
+}
+.section-border {
+  margin-left: 15px;
+  width: 50%;
+  padding-left: 15px;
+  border-top: 2px solid #fff;
+}
+
+.slide-one > head {
+  width: 100%;
+  background: #76d48f;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-content: flex-start;
+}
+
+.logo > img {
+  display: flex;
+  height: 60%;
+  width: 60%;
+  margin-top: 15px;
+  margin-left: 15px;
+  align-self: end;
+}
+
+.slide-one > footer {
+  height: 65px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  color: #76d48f;
+}
+
+.slide-one > header,
+footer {
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.5);
+  border-top: 1px solid #76d48f;
+}
+
+/*TODO: rethink logo-header {width & height}*/
+/*TODO: check why fonts are not loading*/
