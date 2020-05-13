@@ -10,7 +10,7 @@ body {
 }
 .swiper-container {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -35,12 +35,9 @@ body {
   align-items: center;
 }
 
-section:nth-of-type(1) span {
-  margin: 10px;
-}
-
 .slide-one {
   display: flex;
+  height: 100%;
   justify-content: space-between;
   background-image: url("./img/bg-lines@2x.png");
   background-size: cover;
