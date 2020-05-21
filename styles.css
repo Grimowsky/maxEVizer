@@ -85,10 +85,7 @@ body {
 
 .logo > img {
   display: flex;
-  height: 60%;
-  width: 60%;
-  margin-top: 15px;
-  margin-left: 15px;
+  transform: scale(0.5);
   align-self: end;
 }
 
@@ -196,6 +193,36 @@ footer {
   width: 80%;
   object-fit: contain;
 }
+
+.img-icons {
+  padding: 10px;
+}
+.img-icons img {
+  transform: scale(0.5);
+}
+
+.img-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.list {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.li {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+}
+
+.li img {
+  transform: scale(0.5);
+}
+
 @media (max-width: 480px) {
   html,
   body,
