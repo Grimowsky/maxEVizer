@@ -379,6 +379,21 @@ body,
   }
   .content {
   }
+  .wrapper {
+    width: 75%;
+  }
+  .wrapper .title {
+    font-size: 28px;
+  }
+  .wrapper p {
+    font-size: 20px;
+  }
+  div.col-1 > ul > li {
+    font-size: 20px;
+  }
+  .icon-container {
+    font-size: 20px;
+  }
 }
 
 /*TODO: rethink logo-header {width & height}*/
