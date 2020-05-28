@@ -18,13 +18,22 @@
 
     <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.0-alpha/Chart.min.js"
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.0-alpha/Chart.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      window.ChartV1 = Chart;
+    </script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
       crossorigin="anonymous"
     ></script>
   </head>
   <body>
     <!-- Swiper -->
-    <div class="swiper-container">
+    <div class="swiper-container" style="background: black;">
       <div class="swiper-wrapper">
         <section class="swiper-slide flex img-background mobile">
           <header><img src="./img/logo-web@2x.png" /></header>
@@ -349,9 +358,18 @@
                 </p>
               </div>
               <div class="col-2">
-                <canvas id="chart-one" width="400px" height="400px"></canvas>
+                <canvas id="chart-one"></canvas>
               </div>
-              <div class="col-3">CCC</div>
+              <div class="col-3">
+                <div class="chart-box-bar">
+                  <div class="chart-box">
+                    <canvas id="chart-two-stacked"></canvas>
+                  </div>
+                  <div class="chart-box">
+                    <canvas id="chart-three-stacked"></canvas>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="footer-desktop">
               ARROW
@@ -2263,17 +2281,22 @@
       data.push({ x: 1710, y: 322 });
       data.push({ x: 1711, y: 321 });
       data.push({ x: 1712, y: 320 });
+      console.log(ChartV1.defaults);
+      ChartV1.defaults.scale.gridLines.color = "#ffffff";
+      ChartV1.defaults.scale.gridLines.drawTicks = false;
+      ChartV1.defaults.fontColor = "transparent";
 
       var delayBetweenPoints = 20;
       var started = {};
       var ctx2 = document.getElementById("chart-one").getContext("2d");
-      var chart2 = new Chart(ctx2, {
+      var chart2 = new ChartV1(ctx2, {
         type: "line",
         data: {
           datasets: [
             {
               backgroundColor: "transparent",
-              borderColor: "rgb(255, 99, 132)",
+              fontColor: "transparent",
+              borderColor: "rgb(255,40,53)",
               borderWidth: 1,
               pointRadius: 0,
               data: data,
@@ -2318,6 +2341,9 @@
           ],
         },
         options: {
+          legend: {
+            display: false,
+          },
           scales: {
             x: {
               type: "linear",
@@ -2330,6 +2356,37 @@
                 drawOnChartArea: false,
               },
             },
+          },
+        },
+      });
+
+      var ctx = document.getElementById("chart-two-stacked");
+
+      var myChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          datasets: [
+            {
+              data: [281],
+              backgroundColor: "#D6E9C6",
+            },
+          ],
+        },
+        options: {
+          legend: {
+            display: false,
+          },
+          scales: {
+            yAxes: [
+              {
+                display: false,
+                stacked: false,
+                ticks: {
+                  min: 0, // minimum value
+                  max: 500, // maximum value
+                },
+              },
+            ],
           },
         },
       });
