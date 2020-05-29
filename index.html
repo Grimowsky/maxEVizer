@@ -363,10 +363,16 @@
               <div class="col-3">
                 <div class="chart-box-bar">
                   <div class="chart-box">
-                    <canvas id="chart-two-stacked"></canvas>
+                    <canvas
+                      id="chart-two-stacked"
+                      style="display: block; height: 165px; width: 100px;"
+                    ></canvas>
                   </div>
                   <div class="chart-box">
-                    <canvas id="chart-three-stacked"></canvas>
+                    <canvas
+                      id="chart-three-stacked"
+                      style="display: block; height: 165px; width: 100px;"
+                    ></canvas>
                   </div>
                 </div>
               </div>
@@ -715,7 +721,7 @@
       data.push({ x: 144, y: 13 });
       data.push({ x: 145, y: 13 });
       data.push({ x: 146, y: 12 });
-      data.push({ x: 147, y: 80 });
+      data.push({ x: 147, y: 80, bcPlayer: 40 });
       data.push({ x: 148, y: 80 });
       data.push({ x: 149, y: 78 });
       data.push({ x: 150, y: 76 });
@@ -851,7 +857,7 @@
       data.push({ x: 280, y: 77 });
       data.push({ x: 281, y: 77 });
       data.push({ x: 282, y: 76 });
-      data.push({ x: 283, y: 170 });
+      data.push({ x: 283, y: 170, bcPlayer: 85 });
       data.push({ x: 284, y: 169 });
       data.push({ x: 285, y: 168 });
       data.push({ x: 286, y: 166 });
@@ -1109,7 +1115,7 @@
       data.push({ x: 538, y: 175 });
       data.push({ x: 539, y: 176 });
       data.push({ x: 540, y: 177 });
-      data.push({ x: 541, y: 210 });
+      data.push({ x: 541, y: 210, bcPlayer: 105 });
       data.push({ x: 542, y: 209 });
       data.push({ x: 543, y: 208 });
       data.push({ x: 544, y: 210 });
@@ -1124,7 +1130,7 @@
       data.push({ x: 553, y: 203 });
       data.push({ x: 554, y: 202 });
       data.push({ x: 555, y: 211 });
-      data.push({ x: 556, y: 268 });
+      data.push({ x: 556, y: 268, bcPlayer: 134 });
       data.push({ x: 557, y: 266 });
       data.push({ x: 558, y: 266 });
       data.push({ x: 559, y: 265 });
@@ -1381,7 +1387,7 @@
       data.push({ x: 810, y: 260 });
       data.push({ x: 811, y: 260 });
       data.push({ x: 812, y: 259 });
-      data.push({ x: 813, y: 338 });
+      data.push({ x: 813, y: 338, bcPlayer: 169 });
       data.push({ x: 814, y: 339 });
       data.push({ x: 815, y: 338 });
       data.push({ x: 816, y: 335 });
@@ -1405,7 +1411,7 @@
       data.push({ x: 834, y: 340 });
       data.push({ x: 835, y: 341 });
       data.push({ x: 836, y: 344 });
-      data.push({ x: 837, y: 384 });
+      data.push({ x: 837, y: 384, bcPlayer: 192 });
       data.push({ x: 838, y: 381 });
       data.push({ x: 839, y: 380 });
       data.push({ x: 840, y: 378 });
@@ -1616,7 +1622,7 @@
       data.push({ x: 1045, y: 387 });
       data.push({ x: 1046, y: 386 });
       data.push({ x: 1047, y: 385 });
-      data.push({ x: 1048, y: 450 });
+      data.push({ x: 1048, y: 450, bcPlayer: 225 });
       data.push({ x: 1049, y: 451 });
       data.push({ x: 1050, y: 450 });
       data.push({ x: 1051, y: 451 });
@@ -1870,7 +1876,7 @@
       data.push({ x: 1299, y: 527 });
       data.push({ x: 1300, y: 528 });
       data.push({ x: 1301, y: 526 });
-      data.push({ x: 1302, y: 602 });
+      data.push({ x: 1302, y: 602, bcPlayer: 301 });
       data.push({ x: 1303, y: 602 });
       data.push({ x: 1304, y: 600 });
       data.push({ x: 1305, y: 598 });
@@ -2281,10 +2287,59 @@
       data.push({ x: 1710, y: 322 });
       data.push({ x: 1711, y: 321 });
       data.push({ x: 1712, y: 320 });
-      console.log(ChartV1.defaults);
+
       ChartV1.defaults.scale.gridLines.color = "#ffffff";
       ChartV1.defaults.scale.gridLines.drawTicks = false;
       ChartV1.defaults.fontColor = "transparent";
+
+      var ctx = document.getElementById("chart-three-stacked");
+
+      var ctx = document.getElementById("chart-three-stacked");
+      var myChart3333 = new Chart(ctx, {
+        type: "bar",
+        data: {
+          datasets: [
+            {
+              data: [0],
+              backgroundColor: "#D6E9C6",
+              // borderColor: ["rgba(255,99,132,1)"],
+              // borderWidth: 2,
+            },
+          ],
+        },
+        options: {
+          legend: {
+            display: false,
+          },
+          tooltips: {
+            enabled: true,
+          },
+          scales: {
+            yAxes: [
+              {
+                stacked: false,
+                ticks: {
+                  beginAtZero: true,
+                  display: true,
+                  suggestedMin: 0,
+                  max: 500,
+                },
+              },
+            ],
+            xAxes: [
+              {
+                stacked: false,
+                ticks: {
+                  display: true,
+                  suggestedMin: 10,
+                  max: 20,
+                  beginAtZero: true,
+                },
+              },
+            ],
+          },
+        },
+      });
 
       var delayBetweenPoints = 20;
       var started = {};
@@ -2307,6 +2362,16 @@
                 if (!started[index]) {
                   delay = index * delayBetweenPoints;
                   started[index] = true;
+
+                  // console.log(context.dataset.data[index]);
+                  context.dataset.data[index] &&
+                  context.dataset.data[index].hasOwnProperty("bcPlayer")
+                    ? setTimeout(function () {
+                        myChart3333.config.data.datasets[0].data[0] =
+                          context.dataset.data[index].bcPlayer;
+                        myChart3333.update();
+                      }, delay / 4)
+                    : null;
                 }
                 var { x, y } =
                   index > 0
@@ -2362,13 +2427,22 @@
 
       var ctx = document.getElementById("chart-two-stacked");
 
-      var myChart = new Chart(ctx, {
+      var ctx = document.getElementById("chart-two-stacked");
+      var myChart111 = new Chart(ctx, {
         type: "bar",
         data: {
           datasets: [
             {
-              data: [281],
+              data: [20],
               backgroundColor: "#D6E9C6",
+              // borderColor: ["rgba(255,99,132,1)"],
+              // borderWidth: 2,
+            },
+            {
+              data: [281],
+              backgroundColor: ["rgb(255,104,109)"],
+              // borderColor: ["rgba(255, 159, 64, 1)"],
+              // borderWidth: 2,
             },
           ],
         },
@@ -2376,20 +2450,47 @@
           legend: {
             display: false,
           },
+          tooltips: {
+            enabled: false,
+          },
           scales: {
             yAxes: [
               {
-                display: false,
-                stacked: false,
+                stacked: true,
                 ticks: {
-                  min: 0, // minimum value
-                  max: 500, // maximum value
+                  beginAtZero: true,
+                  display: true,
+                  suggestedMin: 0,
+                  max: 500,
+                },
+              },
+            ],
+            xAxes: [
+              {
+                stacked: true,
+                ticks: {
+                  display: false,
+                  beginAtZero: true,
                 },
               },
             ],
           },
         },
       });
+
+      // for (var i = 0; i < 500; i++) {
+      //   myChart3333.config.data.datasets[0].data[0] = i;
+      //   setTimeout(function () {
+      //     myChart3333.config.data.datasets[0].data[0] = i;
+      //     myChart3333.update();
+      //   }, 1000);
+      // }
+
+      console.log("@@@", myChart111);
+      //
+      // myChart3333.config.data.datasets[0].data[0] = 150;
+      // myChart3333.config.data.datasets[0].data[0] = 120;
+      // myChart3333.update();
 
       var swiper = new Swiper(".swiper-container", {
         direction: "vertical",

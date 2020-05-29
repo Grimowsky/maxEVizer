@@ -352,6 +352,11 @@ div.chart-box {
   height: 50%;
 }
 
+/*#chart-two-stacked {*/
+/*  height: 300px !important;*/
+/*  width: 100px !important;*/
+/*}*/
+
 @media (min-width: 480px) {
   html,
   body,
