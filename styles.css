@@ -378,6 +378,20 @@ div.chart-box {
   opacity: 1;
 }
 
+div.stacked-wrapper {
+  width: 25%;
+  height: 40%;
+}
+
+div.linear-wrapper {
+  width: 100%;
+  height: 40%;
+}
+
+div.col-2 {
+  flex-direction: row;
+}
+
 /*#chart-two-stacked {*/
 /*  height: 300px !important;*/
 /*  width: 100px !important;*/
