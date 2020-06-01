@@ -352,6 +352,32 @@ div.chart-box {
   height: 50%;
 }
 
+.swiper-pagination {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.swiper-pagination-bullet {
+  height: calc(100vh / 7);
+  border-radius: 0;
+  background: #5fb277;
+  opacity: 0.5;
+  margin: 0;
+}
+
+.swiper-container-vertical
+  > .swiper-pagination-bullets
+  .swiper-pagination-bullet {
+  margin: 0px 0;
+  display: block;
+}
+.swiper-pagination-bullet-active {
+  background: #5fb277;
+  opacity: 1;
+}
+
 /*#chart-two-stacked {*/
 /*  height: 300px !important;*/
 /*  width: 100px !important;*/
