@@ -18,16 +18,15 @@
     <script src="data.js"></script>
     <script src="data_2.js"></script>
     <script src="data_3.js"></script>
+    <script src="chart_config.js"></script>
     <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.0-alpha/Chart.js"
       crossorigin="anonymous"
     ></script>
-
     <script>
       window.ChartV1 = Chart;
     </script>
-
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
       crossorigin="anonymous"
@@ -412,8 +411,26 @@
                   results of their analysis and final profitability
                 </p>
               </div>
-              <div class="col-2">BBB</div>
-              <div class="col-3">CCC</div>
+              <div class="col-2">
+                <div class="stacked-wrapper">
+                  <canvas
+                    id="slide-two-stacked"
+                    style="height: 100%; width: 100%;"
+                  ></canvas>
+                </div>
+                <div class="stacked-wrapper">
+                  <canvas
+                    id="slide-two-bar"
+                    style="height: 100%; width: 100%;"
+                  ></canvas>
+                </div>
+              </div>
+              <div class="col-3">
+                <canvas
+                  id="slide-two-linear"
+                  style="height: 40%; width: 100%; margin-top: 70px;"
+                ></canvas>
+              </div>
             </div>
             <div class="footer-desktop">
               ARROW
@@ -580,211 +597,27 @@
       ChartV1.defaults.scale.gridLines.drawTicks = false;
       ChartV1.defaults.fontColor = "transparent";
 
+      //slide-one charts
       var ctx = document.getElementById("chart-three-stacked");
-
-      var ctx = document.getElementById("chart-three-stacked");
-      var myChart3333 = new Chart(ctx, {
-        maintainAspectRatio: false,
-        type: "bar",
-        data: {
-          datasets: [
-            {
-              data: [0],
-              backgroundColor: "#D6E9C6",
-              // borderColor: ["rgba(255,99,132,1)"],
-              // borderWidth: 2,
-            },
-          ],
-        },
-        options: {
-          legend: {
-            display: false,
-          },
-          tooltips: {
-            enabled: true,
-          },
-          scales: {
-            yAxes: [
-              {
-                stacked: false,
-                ticks: {
-                  beginAtZero: true,
-                  display: false,
-                  suggestedMin: 0,
-                  max: 1250,
-                },
-              },
-            ],
-            xAxes: [
-              {
-                stacked: false,
-                ticks: {
-                  display: false,
-                  beginAtZero: true,
-                },
-              },
-            ],
-          },
-        },
-      });
+      var slide_one_bar = new Chart(ctx, slide_one_bar);
 
       var ctx = document.getElementById("chart-two-stacked");
+      var slide_one_bar_stacked = new Chart(ctx, slide_one_bar_stacked);
 
-      var ctx = document.getElementById("chart-two-stacked");
-      var myChart111 = new Chart(ctx, {
-        maintainAspectRatio: false,
-        type: "bar",
-        data: {
-          datasets: [
-            {
-              data: [0],
-              backgroundColor: "#D6E9C6",
-              // borderColor: ["rgba(255,99,132,1)"],
-              // borderWidth: 2,
-            },
-            {
-              data: [0],
-              backgroundColor: ["rgb(255,104,109)"],
-              // borderColor: ["rgba(255, 159, 64, 1)"],
-              // borderWidth: 2,
-            },
-          ],
-        },
-        options: {
-          legend: {
-            display: false,
-          },
-          tooltips: {
-            enabled: false,
-          },
-          scales: {
-            yAxes: [
-              {
-                stacked: true,
-                ticks: {
-                  beginAtZero: true,
-                  display: false,
-                  suggestedMin: 0,
-                  max: 1250,
-                },
-              },
-            ],
-            xAxes: [
-              {
-                stacked: true,
-                ticks: {
-                  display: false,
-                  beginAtZero: true,
-                },
-              },
-            ],
-          },
-        },
-      });
-
-      var delayBetweenPoints = 20;
-      var started = {};
       var ctx2 = document.getElementById("chart-one").getContext("2d");
-      var chart2 = new ChartV1(ctx2, {
-        type: "line",
-        data: {
-          datasets: [
-            {
-              backgroundColor: "transparent",
-              fontColor: "transparent",
-              borderColor: "rgb(255,40,53)",
-              borderWidth: 1,
-              pointRadius: 0,
-              data: data,
-              fill: true,
-              animation: (context) => {
-                var delay = 0;
-                var index = context.dataIndex;
-                if (!started[index]) {
-                  delay = index * delayBetweenPoints;
-                  started[index] = true;
+      var slide_one_linear = new ChartV1(ctx2, slide_one_linear);
 
-                  context.dataset.data[index] &&
-                  context.dataset.data[index].hasOwnProperty("bcPlayer")
-                    ? setTimeout(function () {
-                        myChart3333.config.data.datasets[0].data[0] =
-                          context.dataset.data[index].bcPlayer;
-                        myChart3333.update();
-                      }, delay / 4)
-                    : null;
+      //slide-two-charts
+      var ctx_2_1 = document.getElementById("slide-two-bar");
+      var slide_two_bar = new Chart(ctx_2_1, slide_two_bar);
 
-                  context.dataset.data[index] &&
-                  context.dataset.data[index].hasOwnProperty("bcProfit")
-                    ? setTimeout(function () {
-                        myChart111.config.data.datasets[0].data[0] =
-                          context.dataset.data[index].bcProfit;
-                        myChart111.update();
-                      }, delay / 4)
-                    : null;
+      var ctx_2_2 = document.getElementById("slide-two-stacked");
+      var slide_two_bar_stacked = new Chart(ctx_2_2, slide_two_bar_stacked);
 
-                  context.dataset.data[index] &&
-                  context.dataset.data[index].hasOwnProperty("bcMakeup")
-                    ? setTimeout(function () {
-                        myChart111.config.data.datasets[1].data[0] =
-                          context.dataset.data[index].bcMakeup;
-                        myChart111.update();
-                      }, delay / 4)
-                    : null;
-                }
-                var { x, y } =
-                  index > 0
-                    ? context.chart
-                        .getDatasetMeta(0)
-                        .data[index - 1].getProps(["x", "y"], true)
-                    : { x: 0, y: 0 };
-
-                return {
-                  x: {
-                    easing: "linear",
-                    duration: delayBetweenPoints * 500,
-                    from: x,
-                    delay: delay,
-                  },
-                  y: {
-                    // easing: "linear",
-                    // duration: delayBetweenPoints * 500,
-                    // from: y,
-                    // delay: delay,
-                  },
-                  skip: {
-                    type: "boolean",
-                    duration: delayBetweenPoints,
-                    from: true,
-                    to: false,
-                    delay: delay / 4,
-                  },
-                };
-              },
-            },
-            {
-              data: [0, 1150],
-            },
-          ],
-        },
-        options: {
-          legend: {
-            display: false,
-          },
-          scales: {
-            x: {
-              type: "linear",
-              gridLines: {
-                drawOnChartArea: false,
-              },
-            },
-            y: {
-              gridLines: {
-                drawOnChartArea: false,
-              },
-            },
-          },
-        },
-      });
+      var ctx_2_3 = document
+        .getElementById("slide-two-linear")
+        .getContext("2d");
+      var slide_two_linear = new ChartV1(ctx_2_3, slide_two_linear);
 
       var swiper = new Swiper(".swiper-container", {
         direction: "vertical",
