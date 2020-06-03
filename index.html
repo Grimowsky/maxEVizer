@@ -458,8 +458,26 @@
                   according to backer’s feedback regarding last results.
                 </p>
               </div>
-              <div class="col-2">BBB</div>
-              <div class="col-3">CCC</div>
+              <div class="col-2">
+                <div class="stacked-wrapper">
+                  <canvas
+                    id="slide-three-stacked"
+                    style="height: 100%; width: 100%;"
+                  ></canvas>
+                </div>
+                <div class="stacked-wrapper">
+                  <canvas
+                    id="slide-three-bar"
+                    style="height: 100%; width: 100%;"
+                  ></canvas>
+                </div>
+              </div>
+              <div class="col-3">
+                <canvas
+                  id="slide-three-linear"
+                  style="height: 40%; width: 100%; margin-top: 70px;"
+                ></canvas>
+              </div>
             </div>
             <div class="footer-desktop">
               ARROW
@@ -618,6 +636,18 @@
         .getElementById("slide-two-linear")
         .getContext("2d");
       var slide_two_linear = new ChartV1(ctx_2_3, slide_two_linear);
+
+      //slide-three-charts
+      var ctx_3_1 = document.getElementById("slide-three-bar");
+      var slide_three_bar = new Chart(ctx_3_1, slide_three_bar);
+
+      var ctx_3_2 = document.getElementById("slide-three-stacked");
+      var slide_three_bar_stacked = new Chart(ctx_3_2, slide_three_bar_stacked);
+
+      var ctx_3_3 = document
+        .getElementById("slide-three-linear")
+        .getContext("2d");
+      var slide_three_linear = new ChartV1(ctx_3_3, slide_three_linear);
 
       var swiper = new Swiper(".swiper-container", {
         direction: "vertical",
