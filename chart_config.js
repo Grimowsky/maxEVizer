@@ -593,3 +593,16 @@ var slide_three_linear = {
     },
   },
 };
+
+//slide-one charts
+function getChartConfig() {
+  return {
+    linear: [slide_one_linear, slide_two_linear, slide_three_linear],
+    stacked: [
+      slide_two_bar_stacked,
+      slide_two_bar_stacked,
+      slide_three_bar_stacked,
+    ],
+    bar: [slide_one_bar, slide_two_bar, slide_three_bar],
+  };
+}

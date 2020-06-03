@@ -607,47 +607,59 @@
       <!-- Add Pagination -->
       <div class="swiper-pagination"></div>
     </div>
-
+    <script></script>
     <!-- Initialize Swiper -->
 
     <script>
+      var config = getChartConfig();
+
       ChartV1.defaults.scale.gridLines.color = "#ffffff";
       ChartV1.defaults.scale.gridLines.drawTicks = false;
       ChartV1.defaults.fontColor = "transparent";
 
-      //slide-one charts
       var ctx = document.getElementById("chart-three-stacked");
-      var slide_one_bar = new Chart(ctx, slide_one_bar);
+      var slide_one_bar = new Chart(ctx, config.bar[0]);
 
-      var ctx = document.getElementById("chart-two-stacked");
-      var slide_one_bar_stacked = new Chart(ctx, slide_one_bar_stacked);
-
-      var ctx2 = document.getElementById("chart-one").getContext("2d");
-      var slide_one_linear = new ChartV1(ctx2, slide_one_linear);
+      var ctx11 = document.getElementById("chart-two-stacked");
+      var slide_one_bar_stacked = new Chart(ctx11, config.stacked[0]);
 
       //slide-two-charts
       var ctx_2_1 = document.getElementById("slide-two-bar");
-      var slide_two_bar = new Chart(ctx_2_1, slide_two_bar);
+      var slide_two_bar = new Chart(ctx_2_1, config.bar[1]);
 
       var ctx_2_2 = document.getElementById("slide-two-stacked");
-      var slide_two_bar_stacked = new Chart(ctx_2_2, slide_two_bar_stacked);
+      var slide_two_bar_stacked = new Chart(ctx_2_2, config.stacked[1]);
 
-      var ctx_2_3 = document
-        .getElementById("slide-two-linear")
-        .getContext("2d");
-      var slide_two_linear = new ChartV1(ctx_2_3, slide_two_linear);
-
-      //slide-three-charts
+      // //slide-three-charts
       var ctx_3_1 = document.getElementById("slide-three-bar");
-      var slide_three_bar = new Chart(ctx_3_1, slide_three_bar);
+      var slide_three_bar = new Chart(ctx_3_1, config.bar[2]);
 
       var ctx_3_2 = document.getElementById("slide-three-stacked");
-      var slide_three_bar_stacked = new Chart(ctx_3_2, slide_three_bar_stacked);
+      var slide_three_bar_stacked = new Chart(ctx_3_2, config.stacked[2]);
 
-      var ctx_3_3 = document
-        .getElementById("slide-three-linear")
-        .getContext("2d");
-      var slide_three_linear = new ChartV1(ctx_3_3, slide_three_linear);
+      function drawChart(index, shouldDrawChart) {
+        if (shouldDrawChart[index] === true && index === 1) {
+          var ctx2 = document.getElementById("chart-one").getContext("2d");
+          var slide_one_linear = new ChartV1(ctx2, config.linear[0]);
+          shouldDrawChart[index] = false;
+        } else if (shouldDrawChart[index] === true && index === 2) {
+          var ctx_2_3 = document
+            .getElementById("slide-two-linear")
+            .getContext("2d");
+          var slide_two_linear = new ChartV1(ctx_2_3, config.linear[1]);
+          shouldDrawChart[index] = false;
+        } else if (shouldDrawChart[index] === true && index === 3) {
+          var ctx_3_3 = document
+            .getElementById("slide-three-linear")
+            .getContext("2d");
+          var slide_three_linear = new ChartV1(ctx_3_3, config.linear[2]);
+          shouldDrawChart[index] = false;
+        }
+      }
+
+      //
+
+      //
 
       var swiper = new Swiper(".swiper-container", {
         direction: "vertical",
@@ -659,9 +671,14 @@
           clickable: true,
         },
       });
-      // swiper.on("slideChange", function () {
-      //   // drawChart();
-      // });
+      var shouldDrawChart = {
+        1: true,
+        2: true,
+        3: true,
+      };
+      swiper.on("slideChange", function () {
+        drawChart(swiper.activeIndex, shouldDrawChart);
+      });
 
       function slideToContact() {
         swiper.slideTo(6);
