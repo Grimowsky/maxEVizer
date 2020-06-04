@@ -389,9 +389,23 @@ div.linear-wrapper {
   height: 40%;
 }
 
+.flex-grow {
+  flex-grow: 1;
+}
 div.col-2 {
   flex-direction: row;
   justify-content: center;
+}
+
+.barchart-multiple {
+  height: 50%;
+  width: 75%;
+  align-self: center;
+}
+
+#slide-bar-multiple {
+  width: 200px;
+  height: 200px;
 }
 
 /*#chart-two-stacked {*/
