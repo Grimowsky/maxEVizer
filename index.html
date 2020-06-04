@@ -505,8 +505,14 @@
                   over 40% over the year.
                 </p>
               </div>
-              <div class="col-2">BBB</div>
-              <div class="col-3">CCC</div>
+              <div class="col-3 flex-grow">
+                <div class="barchart-multiple">
+                  <canvas
+                    id="slide-bar-multiple"
+                    style="width: 100%; height: 100%;"
+                  ></canvas>
+                </div>
+              </div>
             </div>
             <div class="footer-desktop">
               ARROW
@@ -637,6 +643,81 @@
       var ctx_3_2 = document.getElementById("slide-three-stacked");
       var slide_three_bar_stacked = new Chart(ctx_3_2, config.stacked[2]);
 
+      var ctx_4_1 = document.getElementById("slide-bar-multiple");
+      var myChart = new Chart(ctx_4_1, {
+        responsive: true,
+        maintainAspectRatio: false,
+        type: "bar",
+        data: {
+          labels: ["", "", ""],
+          datasets: [
+            {
+              label: "added $/game",
+              data: [1.8, 3.5, 5.8],
+              backgroundColor: [
+                "rgb(118,212,143)",
+                "rgb(118,212,143)",
+                "rgb(118,212,143)",
+              ],
+              borderColor: [
+                "rgb(118,212,143)",
+                "rgb(118,212,143)",
+                "rgb(118,212,143)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          gridLines: {
+            drawOnChartArea: true,
+          },
+          legend: {
+            labels: {
+              boxWidth: 12,
+              fontSize: 12,
+              fontColor: "#ffffff",
+              fontFamily: "Ubuntu",
+            },
+            position: "right",
+            align: "start",
+            display: true,
+          },
+          label: {
+            display: false,
+          },
+          responsive: true,
+          scales: {
+            xAxes: [
+              {
+                barPercentage: 0.4,
+                ticks: {
+                  display: false,
+                },
+                gridLines: {
+                  drawTicks: false,
+                  drawOnChartArea: false,
+                  color: "rgba(255, 255, 255, 0.2)",
+                  // drawBorder: true,
+                },
+              },
+            ],
+            yAxes: [
+              {
+                ticks: {
+                  beginAtZero: true,
+                  max: 6,
+                },
+                gridLines: {
+                  color: "rgba(255, 255, 255, 0.2)",
+                  drawBorder: false,
+                },
+              },
+            ],
+          },
+        },
+      });
+
       function drawChart(index, shouldDrawChart) {
         if (shouldDrawChart[index] === true && index === 1) {
           var ctx2 = document.getElementById("chart-one").getContext("2d");
@@ -656,10 +737,6 @@
           shouldDrawChart[index] = false;
         }
       }
-
-      //
-
-      //
 
       var swiper = new Swiper(".swiper-container", {
         direction: "vertical",
