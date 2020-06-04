@@ -405,35 +405,34 @@ var slide_two_linear = {
           if (!started2[index]) {
             delay = index * delayBetweenPoints2;
             started2[index] = true;
+
+            context.dataset.data[index] &&
+            context.dataset.data[index].hasOwnProperty("bcPlayer")
+              ? setTimeout(function () {
+                  slide_two_bar.config.data.datasets[0].data[0] =
+                    context.dataset.data[index].bcPlayer;
+                  slide_two_bar.update();
+                }, delay / 4)
+              : null;
+
+            context.dataset.data[index] &&
+            context.dataset.data[index].hasOwnProperty("bcProfit")
+              ? setTimeout(function () {
+                  slide_two_bar_stacked.config.data.datasets[0].data[0] =
+                    context.dataset.data[index].bcProfit;
+                  slide_two_bar_stacked.update();
+                }, delay / 4)
+              : null;
+
+            context.dataset.data[index] &&
+            context.dataset.data[index].hasOwnProperty("bcMakeup")
+              ? setTimeout(function () {
+                  slide_two_bar_stacked.config.data.datasets[1].data[0] =
+                    context.dataset.data[index].bcMakeup;
+                  slide_two_bar_stacked.update();
+                }, delay / 4)
+              : null;
           }
-
-          context.dataset.data[index] &&
-          context.dataset.data[index].hasOwnProperty("bcPlayer")
-            ? setTimeout(function () {
-                slide_two_bar.config.data.datasets[0].data[0] =
-                  context.dataset.data[index].bcPlayer;
-                slide_two_bar.update();
-              }, delay / 4)
-            : null;
-
-          context.dataset.data[index] &&
-          context.dataset.data[index].hasOwnProperty("bcProfit")
-            ? setTimeout(function () {
-                slide_two_bar_stacked.config.data.datasets[0].data[0] =
-                  context.dataset.data[index].bcProfit;
-                slide_two_bar_stacked.update();
-              }, delay / 4)
-            : null;
-
-          context.dataset.data[index] &&
-          context.dataset.data[index].hasOwnProperty("bcMakeup")
-            ? setTimeout(function () {
-                slide_two_bar_stacked.config.data.datasets[1].data[0] =
-                  context.dataset.data[index].bcMakeup;
-                slide_two_bar_stacked.update();
-              }, delay / 4)
-            : null;
-
           var { x, y } =
             index > 0
               ? context.chart
@@ -510,35 +509,34 @@ var slide_three_linear = {
           if (!started3[index]) {
             delay = index * delayBetweenPoints3;
             started3[index] = true;
+
+            context.dataset.data[index] &&
+            context.dataset.data[index].hasOwnProperty("bcPlayer")
+              ? setTimeout(function () {
+                  slide_three_bar.config.data.datasets[0].data[0] =
+                    context.dataset.data[index].bcPlayer;
+                  slide_three_bar.update();
+                }, delay / 4)
+              : null;
+
+            context.dataset.data[index] &&
+            context.dataset.data[index].hasOwnProperty("bcProfit")
+              ? setTimeout(function () {
+                  slide_three_bar_stacked.config.data.datasets[0].data[0] =
+                    context.dataset.data[index].bcProfit;
+                  slide_three_bar_stacked.update();
+                }, delay / 4)
+              : null;
+
+            context.dataset.data[index] &&
+            context.dataset.data[index].hasOwnProperty("bcMakeup")
+              ? setTimeout(function () {
+                  slide_three_bar_stacked.config.data.datasets[1].data[0] =
+                    context.dataset.data[index].bcMakeup;
+                  slide_three_bar_stacked.update();
+                }, delay / 4)
+              : null;
           }
-
-          context.dataset.data[index] &&
-          context.dataset.data[index].hasOwnProperty("bcPlayer")
-            ? setTimeout(function () {
-                slide_three_bar.config.data.datasets[0].data[0] =
-                  context.dataset.data[index].bcPlayer;
-                slide_three_bar.update();
-              }, delay / 4)
-            : null;
-
-          context.dataset.data[index] &&
-          context.dataset.data[index].hasOwnProperty("bcProfit")
-            ? setTimeout(function () {
-                slide_three_bar_stacked.config.data.datasets[0].data[0] =
-                  context.dataset.data[index].bcProfit;
-                slide_three_bar_stacked.update();
-              }, delay / 4)
-            : null;
-
-          context.dataset.data[index] &&
-          context.dataset.data[index].hasOwnProperty("bcMakeup")
-            ? setTimeout(function () {
-                slide_three_bar_stacked.config.data.datasets[1].data[0] =
-                  context.dataset.data[index].bcMakeup;
-                slide_three_bar_stacked.update();
-              }, delay / 4)
-            : null;
-
           var { x, y } =
             index > 0
               ? context.chart
@@ -599,7 +597,7 @@ function getChartConfig() {
   return {
     linear: [slide_one_linear, slide_two_linear, slide_three_linear],
     stacked: [
-      slide_two_bar_stacked,
+      slide_one_bar_stacked,
       slide_two_bar_stacked,
       slide_three_bar_stacked,
     ],
