@@ -326,7 +326,9 @@
               </p>
             </div>
             <div class="footer-desktop">
-              ARROW
+              <button class="" onclick="swiper.slideNext();">
+                <img class="" src="./img/arrow-down-green@2x.png" />
+              </button>
             </div>
           </div>
         </section>
@@ -380,7 +382,9 @@
               </div>
             </div>
             <div class="footer-desktop">
-              ARROW
+              <button class="" onclick="swiper.slideNext();">
+                <img class="" src="./img/arrow-down-green@2x.png" />
+              </button>
             </div>
           </div>
         </section>
@@ -433,7 +437,9 @@
               </div>
             </div>
             <div class="footer-desktop">
-              ARROW
+              <button class="" onclick="swiper.slideNext();">
+                <img class="" src="./img/arrow-down-green@2x.png" />
+              </button>
             </div>
           </div>
         </section>
@@ -480,7 +486,9 @@
               </div>
             </div>
             <div class="footer-desktop">
-              ARROW
+              <button class="" onclick="swiper.slideNext();">
+                <img class="" src="./img/arrow-down-green@2x.png" />
+              </button>
             </div>
           </div>
         </section>
@@ -515,7 +523,9 @@
               </div>
             </div>
             <div class="footer-desktop">
-              ARROW
+              <button class="" onclick="swiper.slideNext();">
+                <img class="" src="./img/arrow-down-green@2x.png" />
+              </button>
             </div>
           </div>
         </section>
@@ -564,7 +574,9 @@
               </div>
             </div>
             <div class="footer-desktop">
-              ARROW
+              <button class="" onclick="swiper.slideNext();">
+                <img class="" src="./img/arrow-down-green@2x.png" />
+              </button>
             </div>
           </div>
         </section>
@@ -604,7 +616,25 @@
               </div>
             </div>
             <div class="footer-desktop">
-              ARROW
+              <button class="" onclick="swiper.slideNext();">
+                <img class="" src="./img/arrow-down-green@2x.png" />
+              </button>
+            </div>
+          </div>
+        </section>
+        <section class="swiper-slide flex img-background desktop">
+          <div class="wrapper">
+            <header></header>
+            <div class="content-slide-one">
+              <div class="pusher"></div>
+              <p class="title">
+                <strong>maxevixer@maxevizer.com</strong>
+              </p>
+            </div>
+            <div class="footer-desktop">
+              <button class="" onclick="swiper.slideTo(0);">
+                <img class="" src="./img/arrow-up-green@2x.png" />
+              </button>
             </div>
           </div>
         </section>
@@ -644,79 +674,7 @@
       var slide_three_bar_stacked = new Chart(ctx_3_2, config.stacked[2]);
 
       var ctx_4_1 = document.getElementById("slide-bar-multiple");
-      var myChart = new Chart(ctx_4_1, {
-        responsive: true,
-        maintainAspectRatio: false,
-        type: "bar",
-        data: {
-          labels: ["", "", ""],
-          datasets: [
-            {
-              label: "added $/game",
-              data: [1.8, 3.5, 5.8],
-              backgroundColor: [
-                "rgb(118,212,143)",
-                "rgb(118,212,143)",
-                "rgb(118,212,143)",
-              ],
-              borderColor: [
-                "rgb(118,212,143)",
-                "rgb(118,212,143)",
-                "rgb(118,212,143)",
-              ],
-              borderWidth: 1,
-            },
-          ],
-        },
-        options: {
-          gridLines: {
-            drawOnChartArea: true,
-          },
-          legend: {
-            labels: {
-              boxWidth: 12,
-              fontSize: 12,
-              fontColor: "#ffffff",
-              fontFamily: "Ubuntu",
-            },
-            position: "right",
-            align: "start",
-            display: true,
-          },
-          label: {
-            display: false,
-          },
-          responsive: true,
-          scales: {
-            xAxes: [
-              {
-                barPercentage: 0.4,
-                ticks: {
-                  display: false,
-                },
-                gridLines: {
-                  drawTicks: false,
-                  drawOnChartArea: false,
-                  color: "rgba(255, 255, 255, 0.2)",
-                  // drawBorder: true,
-                },
-              },
-            ],
-            yAxes: [
-              {
-                ticks: {
-                  beginAtZero: true,
-                  max: 6,
-                },
-                gridLines: {
-                  color: "rgba(255, 255, 255, 0.2)",
-                  drawBorder: false,
-                },
-              },
-            ],
-          },
-        },
-      });
+      var slide_static = new Chart(ctx_4_1, slide_static);
 
       function drawChart(index, shouldDrawChart) {
         if (shouldDrawChart[index] === true && index === 1) {
@@ -757,8 +715,11 @@
         drawChart(swiper.activeIndex, shouldDrawChart);
       });
 
+      function next() {
+        swiper.slideNext();
+      }
       function slideToContact() {
-        swiper.slideTo(6);
+        swiper.slideTo(7);
       }
     </script>
   </body>
