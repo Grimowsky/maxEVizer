@@ -5,7 +5,7 @@ var slide_one_bar = {
     datasets: [
       {
         data: [0],
-        backgroundColor: "#D6E9C6",
+        backgroundColor: "#76d48f",
       },
     ],
   },
@@ -48,7 +48,7 @@ var slide_two_bar = {
     datasets: [
       {
         data: [0],
-        backgroundColor: "#D6E9C6",
+        backgroundColor: "#76d48f",
       },
     ],
   },
@@ -91,7 +91,7 @@ var slide_three_bar = {
     datasets: [
       {
         data: [0],
-        backgroundColor: "#D6E9C6",
+        backgroundColor: "#76d48f",
       },
     ],
   },
@@ -126,7 +126,7 @@ var slide_three_bar = {
     },
   },
 };
-
+//#fb4f59
 var slide_one_bar_stacked = {
   maintainAspectRatio: false,
   type: "bar",
@@ -134,13 +134,13 @@ var slide_one_bar_stacked = {
     datasets: [
       {
         data: [0],
-        backgroundColor: "#D6E9C6",
+        backgroundColor: "#76d48f",
         // borderColor: ["rgba(255,99,132,1)"],
         // borderWidth: 2,
       },
       {
         data: [0],
-        backgroundColor: ["rgb(255,104,109)"],
+        backgroundColor: "#fb4f59",
         // borderColor: ["rgba(255, 159, 64, 1)"],
         // borderWidth: 2,
       },
@@ -185,13 +185,13 @@ var slide_two_bar_stacked = {
     datasets: [
       {
         data: [0],
-        backgroundColor: "#D6E9C6",
+        backgroundColor: "#76d48f",
         // borderColor: ["rgba(255,99,132,1)"],
         // borderWidth: 2,
       },
       {
         data: [0],
-        backgroundColor: ["rgb(255,104,109)"],
+        backgroundColor: "#fb4f59",
         // borderColor: ["rgba(255, 159, 64, 1)"],
         // borderWidth: 2,
       },
@@ -236,13 +236,13 @@ var slide_three_bar_stacked = {
     datasets: [
       {
         data: [0],
-        backgroundColor: "#D6E9C6",
+        backgroundColor: "#76d48f",
         // borderColor: ["rgba(255,99,132,1)"],
         // borderWidth: 2,
       },
       {
         data: [0],
-        backgroundColor: ["rgb(255,104,109)"],
+        backgroundColor: "#fb4f59",
         // borderColor: ["rgba(255, 159, 64, 1)"],
         // borderWidth: 2,
       },
@@ -290,7 +290,7 @@ var slide_one_linear = {
       {
         backgroundColor: "transparent",
         fontColor: "transparent",
-        borderColor: "rgb(255,40,53)",
+        borderColor: "rgb(251,79,89)",
         borderWidth: 1,
         pointRadius: 0,
         data: data,
@@ -394,7 +394,7 @@ var slide_two_linear = {
       {
         backgroundColor: "transparent",
         fontColor: "transparent",
-        borderColor: "rgb(255,40,53)",
+        borderColor: "#fb4f59",
         borderWidth: 1,
         pointRadius: 0,
         data: data_2,
@@ -498,7 +498,7 @@ var slide_three_linear = {
       {
         backgroundColor: "transparent",
         fontColor: "transparent",
-        borderColor: "rgb(255,40,53)",
+        borderColor: "#fb4f59",
         borderWidth: 1,
         pointRadius: 0,
         data: data_3,
