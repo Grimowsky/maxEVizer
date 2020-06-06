@@ -284,6 +284,17 @@ body,
   align-items: center;
 }
 
+.footer-desktop img {
+  padding: 0 25px;
+  cursor: pointer;
+}
+
+.footer-desktop button {
+  width: auto;
+  background: transparent;
+  border: 0px;
+}
+
 .content-slide-icons {
   display: flex;
   flex-direction: column;

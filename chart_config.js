@@ -592,6 +592,81 @@ var slide_three_linear = {
   },
 };
 
+var slide_static = {
+  responsive: true,
+      maintainAspectRatio: false,
+    type: "bar",
+    data: {
+  labels: ["", "", ""],
+      datasets: [
+    {
+      label: "added $/game",
+      data: [1.8, 3.5, 5.8],
+      backgroundColor: [
+        "rgb(118,212,143)",
+        "rgb(118,212,143)",
+        "rgb(118,212,143)",
+      ],
+      borderColor: [
+        "rgb(118,212,143)",
+        "rgb(118,212,143)",
+        "rgb(118,212,143)",
+      ],
+      borderWidth: 1,
+    },
+  ],
+},
+  options: {
+    gridLines: {
+      drawOnChartArea: true,
+    },
+    legend: {
+      labels: {
+        boxWidth: 12,
+            fontSize: 12,
+            fontColor: "#ffffff",
+            fontFamily: "Ubuntu",
+      },
+      position: "right",
+          align: "start",
+          display: true,
+    },
+    label: {
+      display: false,
+    },
+    responsive: true,
+        scales: {
+      xAxes: [
+        {
+          barPercentage: 0.4,
+          ticks: {
+            display: false,
+          },
+          gridLines: {
+            drawTicks: false,
+            drawOnChartArea: false,
+            color: "rgba(255, 255, 255, 0.2)",
+            // drawBorder: true,
+          },
+        },
+      ],
+          yAxes: [
+        {
+          ticks: {
+            beginAtZero: true,
+            max: 6,
+          },
+          gridLines: {
+            color: "rgba(255, 255, 255, 0.2)",
+            drawBorder: false,
+          },
+        },
+      ],
+    },
+  },
+}
+
+
 //slide-one charts
 function getChartConfig() {
   return {
