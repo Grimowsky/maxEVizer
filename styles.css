@@ -248,10 +248,9 @@ body,
   flex-direction: row;
 }
 .content div {
-  display: flex;
-  flex-direction: column;
+  /*display: flex;*/
+  /*flex-direction: column;*/
   text-align: left;
-  align-items: flex-start;
   padding: 0 25px 0 25px;
 }
 .content ul li {
@@ -259,6 +258,7 @@ body,
   font-size: 14px;
 }
 .col-1 {
+  flex-direction: column;
   width: 30%;
 }
 .col-2 {
@@ -390,9 +390,12 @@ div.chart-box {
 }
 
 div.stacked-wrapper {
+  display: flex;
+  padding: 0;
+  align-self: stretch;
+  align-items: flex-end;
   width: 15%;
-  height: 40%;
-  margin-top: 70px;
+  margin-bottom: 10px;
 }
 
 div.linear-wrapper {
@@ -423,7 +426,32 @@ div.col-2 {
 /*  height: 300px !important;*/
 /*  width: 100px !important;*/
 /*}*/
+.col-4 {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  width: 70%;
+  /*flex-grow: 1;*/
+}
 
+.col-4-1 {
+  height: 50%;
+  min-height: 50%;
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+.col-4-2 {
+  width: 60%;
+  min-height: 50%;
+  display: inline-flex;
+  flex-direction: column;
+}
+#chart-one {
+  flex: 1;
+}
 @media (min-width: 480px) {
   html,
   body,
