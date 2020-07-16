@@ -7,19 +7,31 @@
       name="viewport"
       content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.css"
+    />
 
     <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="styles.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap"
       rel="stylesheet"
     />
+
     <script src="data.js"></script>
     <script src="data_2.js"></script>
     <script src="data_3.js"></script>
     <script src="chart_config.js"></script>
-    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.0-alpha/Chart.js"
       crossorigin="anonymous"
@@ -360,25 +372,44 @@
                   profits. Often results in an ultimate los
                 </p>
               </div>
-              <div class="col-2">
-                <div class="stacked-wrapper">
+              <div class="col-4">
+                <div class="col-4-1">
+                  <div class="stacked-wrapper">
+                    <canvas
+                      id="chart-two-stacked"
+                      style="height: 100%; width: 100%;"
+                    ></canvas>
+                  </div>
+                  <div class="stacked-wrapper">
+                    <canvas
+                      id="chart-three-stacked"
+                      style="height: 100%; width: 100%;"
+                    ></canvas>
+                  </div>
+                </div>
+                <div class="col-4-2">
                   <canvas
-                    id="chart-two-stacked"
-                    style="height: 100%; width: 100%;"
+                    id="chart-one"
+                    style="max-height: 100%; width: 100%;"
                   ></canvas>
                 </div>
-                <div class="stacked-wrapper">
-                  <canvas
-                    id="chart-three-stacked"
-                    style="height: 100%; width: 100%;"
-                  ></canvas>
+                <div class="break"></div>
+                <!-- break -->
+                <div class="col-4-3">
+                  <div class="chart-desc">
+                    <span> backers net result </span>
+                    <span> players net result </span>
+                  </div>
+
+                  <div class="chart-legend">
+                    <span class="profit">
+                      player's profit
+                    </span>
+                    <span class="loss">
+                      backer's loss in make up
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div class="col-3">
-                <canvas
-                  id="chart-one"
-                  style="height: 40%; width: 100%; margin-top: 70px;"
-                ></canvas>
               </div>
             </div>
             <div class="footer-desktop">
@@ -622,6 +653,100 @@
             </div>
           </div>
         </section>
+        <section class="swiper-slide flex linear-gradient desktop">
+          <div class="wrapper">
+            <header>
+              <img class="" src="./img/logo-web@2x.png" />
+              <div class="contact" onclick="slideToContact()">contact</div>
+            </header>
+            <div class="content">
+              <div class="col-1">
+                <p class="title">
+                  <strong>We have a working solution</strong>
+                </p>
+                <p>
+                  That turns the first staking scenario into the third one.
+                </p>
+                <p>
+                  See the real improvements of a real players in real games.
+                </p>
+              </div>
+              <div class="col-3 flex-grow">
+                <div class="gallery">
+                  <div class="gallery-col">
+                    <a href="img/screens/before.png" data-caption="Before">
+                      <img src="img/screens/before.png" alt="Before image" />
+                    </a>
+                    <a
+                      href="img/screens/microstakes.png"
+                      data-caption="Microstakes - before"
+                    >
+                      <img
+                        src="img/screens/microstakes.png"
+                        alt="Microstakes - before"
+                      />
+                    </a>
+                    <a
+                      href="img/screens/nonturbo.png"
+                      data-caption="Non turbo - before"
+                    >
+                      <img
+                        src="img/screens/nonturbo.png"
+                        alt="Non turbo - before"
+                      />
+                    </a>
+                    <a
+                      href="img/screens/lower-entrants.png"
+                      data-caption="Lower entrants - before"
+                    >
+                      <img
+                        src="img/screens/lower-entrants.png"
+                        alt="Lower entrants - before"
+                      />
+                    </a>
+                  </div>
+                  <div class="gallery-col">
+                    <a href="img/screens/after.png" data-caption="After">
+                      <img src="img/screens/after.png" alt="After" />
+                    </a>
+                    <a
+                      href="img/screens/lowstakes.png"
+                      data-caption="Lowstakes - after"
+                    >
+                      <img
+                        src="img/screens/lowstakes.png"
+                        alt="Lowstakes - after"
+                      />
+                    </a>
+                    <a
+                      href="img/screens/turbo-hypers.png"
+                      data-caption="Turbo - hypers - after"
+                    >
+                      <img
+                        src="img/screens/turbo-hypers.png"
+                        alt="Turbo after"
+                      />
+                    </a>
+                    <a
+                      href="img/screens/low-guarantee.png"
+                      data-caption="Low guarantee - after"
+                    >
+                      <img
+                        src="img/screens/low-guarantee.png"
+                        alt="Low guarantee - after"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="footer-desktop">
+              <button class="" onclick="swiper.slideNext();">
+                <img class="" src="./img/arrow-down-green@2x.png" />
+              </button>
+            </div>
+          </div>
+        </section>
         <section class="swiper-slide flex img-background desktop">
           <div class="wrapper">
             <header></header>
@@ -643,6 +768,12 @@
       <!-- Add Pagination -->
       <div class="swiper-pagination"></div>
     </div>
+
+    <script>
+      window.addEventListener("load", function () {
+        baguetteBox.run(".gallery");
+      });
+    </script>
     <script></script>
     <!-- Initialize Swiper -->
 
