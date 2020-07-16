@@ -7,6 +7,11 @@
       name="viewport"
       content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.css"
+    />
 
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
@@ -21,6 +26,7 @@
       href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap"
       rel="stylesheet"
     />
+
     <script src="data.js"></script>
     <script src="data_2.js"></script>
     <script src="data_3.js"></script>
@@ -647,6 +653,100 @@
             </div>
           </div>
         </section>
+        <section class="swiper-slide flex linear-gradient desktop">
+          <div class="wrapper">
+            <header>
+              <img class="" src="./img/logo-web@2x.png" />
+              <div class="contact" onclick="slideToContact()">contact</div>
+            </header>
+            <div class="content">
+              <div class="col-1">
+                <p class="title">
+                  <strong>We have a working solution</strong>
+                </p>
+                <p>
+                  That turns the first staking scenario into the third one.
+                </p>
+                <p>
+                  See the real improvements of a real players in real games.
+                </p>
+              </div>
+              <div class="col-3 flex-grow">
+                <div class="gallery">
+                  <div class="gallery-col">
+                    <a href="img/screens/before.png" data-caption="Before">
+                      <img src="img/screens/before.png" alt="Before image" />
+                    </a>
+                    <a
+                      href="img/screens/microstakes.png"
+                      data-caption="Microstakes - before"
+                    >
+                      <img
+                        src="img/screens/microstakes.png"
+                        alt="Microstakes - before"
+                      />
+                    </a>
+                    <a
+                      href="img/screens/nonturbo.png"
+                      data-caption="Non turbo - before"
+                    >
+                      <img
+                        src="img/screens/nonturbo.png"
+                        alt="Non turbo - before"
+                      />
+                    </a>
+                    <a
+                      href="img/screens/lower-entrants.png"
+                      data-caption="Lower entrants - before"
+                    >
+                      <img
+                        src="img/screens/lower-entrants.png"
+                        alt="Lower entrants - before"
+                      />
+                    </a>
+                  </div>
+                  <div class="gallery-col">
+                    <a href="img/screens/after.png" data-caption="After">
+                      <img src="img/screens/after.png" alt="After" />
+                    </a>
+                    <a
+                      href="img/screens/lowstakes.png"
+                      data-caption="Lowstakes - after"
+                    >
+                      <img
+                        src="img/screens/lowstakes.png"
+                        alt="Lowstakes - after"
+                      />
+                    </a>
+                    <a
+                      href="img/screens/turbo-hypers.png"
+                      data-caption="Turbo - hypers - after"
+                    >
+                      <img
+                        src="img/screens/turbo-hypers.png"
+                        alt="Turbo after"
+                      />
+                    </a>
+                    <a
+                      href="img/screens/low-guarantee.png"
+                      data-caption="Low guarantee - after"
+                    >
+                      <img
+                        src="img/screens/low-guarantee.png"
+                        alt="Low guarantee - after"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="footer-desktop">
+              <button class="" onclick="swiper.slideNext();">
+                <img class="" src="./img/arrow-down-green@2x.png" />
+              </button>
+            </div>
+          </div>
+        </section>
         <section class="swiper-slide flex img-background desktop">
           <div class="wrapper">
             <header></header>
@@ -668,6 +768,12 @@
       <!-- Add Pagination -->
       <div class="swiper-pagination"></div>
     </div>
+
+    <script>
+      window.addEventListener("load", function () {
+        baguetteBox.run(".gallery");
+      });
+    </script>
     <script></script>
     <!-- Initialize Swiper -->
 
