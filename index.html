@@ -82,10 +82,36 @@
           <header>
             <img class="" src="./img/logo-web@2x.png" />
           </header>
-          <div class="">
-            <!--            <div><img src="./img/bar-graph.PNG" /></div>-->
-            <!--            <div><img src="./img/line-graph.PNG" /></div>-->
+          <div class="mobile-charts">
+            <div class="chart-legend">
+              <span class="profit">
+                player's profit
+              </span>
+              <span class="loss">
+                backer's loss in make up
+              </span>
+            </div>
+            <div class="bar-container-mobile">
+              <div>
+                <canvas
+                  id="chart-two-stacked-mobile"
+                  style="height: 100%; width: 100%;"
+                ></canvas>
+              </div>
+              <div>
+                <canvas
+                  id="chart-three-stacked-mobile"
+                  style="height: 100%; width: 100%;"
+                ></canvas>
+              </div>
+            </div>
+
+            <canvas
+              id="chart-one-mobile"
+              style="max-height: 50%; width: 100%;"
+            ></canvas>
           </div>
+
           <footer>contact</footer>
         </section>
         <section class="swiper-slide flex linear-gradient mobile">
@@ -848,6 +874,16 @@
       var ctx11 = document.getElementById("chart-two-stacked");
       var slide_one_bar_stacked = new Chart(ctx11, config.stacked[0]);
 
+      // mobile slide-one
+      var ctx_mobile = document.getElementById("chart-three-stacked-mobile");
+      var slide_one_bar_mobile = new Chart(ctx_mobile, config.bar[3]);
+
+      var ctx11_mobile = document.getElementById("chart-two-stacked-mobile");
+      var slide_one_bar_stacked_mobile = new Chart(
+        ctx11_mobile,
+        config.stacked[3]
+      );
+
       //slide-two-charts
       var ctx_2_1 = document.getElementById("slide-two-bar");
       var slide_two_bar = new Chart(ctx_2_1, config.bar[1]);
@@ -867,8 +903,10 @@
 
       function drawChart(index, shouldDrawChart) {
         if (shouldDrawChart[index] === true && index === 1) {
-          var ctx2 = document.getElementById("chart-one").getContext("2d");
-          var slide_one_linear = new ChartV1(ctx2, config.linear[0]);
+          var ctx2 = document
+            .getElementById("chart-one-mobile")
+            .getContext("2d");
+          var slide_one_linear = new ChartV1(ctx2, config.linear[3]);
           shouldDrawChart[index] = false;
         } else if (shouldDrawChart[index] === true && index === 2) {
           var ctx_2_3 = document
