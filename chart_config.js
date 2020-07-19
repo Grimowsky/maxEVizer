@@ -41,6 +41,49 @@ var slide_one_bar = {
   },
 };
 
+var slide_one_bar_mobile = {
+  maintainAspectRatio: false,
+  type: "bar",
+  data: {
+    datasets: [
+      {
+        data: [0],
+        backgroundColor: "#76d48f",
+      },
+    ],
+  },
+  options: {
+    legend: {
+      display: false,
+    },
+    tooltips: {
+      enabled: true,
+    },
+    scales: {
+      yAxes: [
+        {
+          stacked: false,
+          ticks: {
+            beginAtZero: true,
+            display: false,
+            suggestedMin: 0,
+            max: 1250,
+          },
+        },
+      ],
+      xAxes: [
+        {
+          stacked: false,
+          ticks: {
+            display: false,
+            beginAtZero: true,
+          },
+        },
+      ],
+    },
+  },
+};
+
 var slide_two_bar = {
   maintainAspectRatio: false,
   type: "bar",
@@ -128,6 +171,57 @@ var slide_three_bar = {
 };
 //#fb4f59
 var slide_one_bar_stacked = {
+  maintainAspectRatio: false,
+  type: "bar",
+  data: {
+    datasets: [
+      {
+        data: [0],
+        backgroundColor: "#76d48f",
+        // borderColor: ["rgba(255,99,132,1)"],
+        // borderWidth: 2,
+      },
+      {
+        data: [0],
+        backgroundColor: "#fb4f59",
+        // borderColor: ["rgba(255, 159, 64, 1)"],
+        // borderWidth: 2,
+      },
+    ],
+  },
+  options: {
+    legend: {
+      display: false,
+    },
+    tooltips: {
+      enabled: false,
+    },
+    scales: {
+      yAxes: [
+        {
+          stacked: true,
+          ticks: {
+            beginAtZero: true,
+            display: false,
+            suggestedMin: 0,
+            max: 1250,
+          },
+        },
+      ],
+      xAxes: [
+        {
+          stacked: true,
+          ticks: {
+            display: false,
+            beginAtZero: true,
+          },
+        },
+      ],
+    },
+  },
+};
+
+var slide_one_bar_stacked_mobile = {
   maintainAspectRatio: false,
   type: "bar",
   data: {
@@ -326,6 +420,107 @@ var slide_one_linear = {
                   slide_one_bar_stacked.config.data.datasets[1].data[0] =
                     context.dataset.data[index].bcMakeup;
                   slide_one_bar_stacked.update();
+                }, delay / 4)
+              : null;
+          }
+          var { x, y } =
+            index > 0
+              ? context.chart
+                  .getDatasetMeta(0)
+                  .data[index - 1].getProps(["x", "y"], true)
+              : { x: 0, y: 0 };
+
+          return {
+            x: {
+              easing: "linear",
+              duration: delayBetweenPoints * 500,
+              from: x,
+              delay: delay,
+            },
+            y: {
+              // easing: "linear",
+              // duration: delayBetweenPoints * 500,
+              // from: y,
+              // delay: delay,
+            },
+            skip: {
+              type: "boolean",
+              duration: delayBetweenPoints,
+              from: true,
+              to: false,
+              delay: delay / 4,
+            },
+          };
+        },
+      },
+      {
+        data: [0, 1150],
+      },
+    ],
+  },
+  options: {
+    legend: {
+      display: false,
+    },
+    scales: {
+      x: {
+        type: "linear",
+        gridLines: {
+          drawOnChartArea: false,
+        },
+      },
+      y: {
+        gridLines: {
+          drawOnChartArea: false,
+        },
+      },
+    },
+  },
+};
+
+var slide_one_linear_mobile = {
+  type: "line",
+  data: {
+    datasets: [
+      {
+        backgroundColor: "transparent",
+        fontColor: "transparent",
+        borderColor: "rgb(251,79,89)",
+        borderWidth: 1,
+        pointRadius: 0,
+        data: data,
+        fill: true,
+        animation: (context) => {
+          var delay = 0;
+          var index = context.dataIndex;
+          if (!started[index]) {
+            delay = index * delayBetweenPoints;
+            started[index] = true;
+
+            context.dataset.data[index] &&
+            context.dataset.data[index].hasOwnProperty("bcPlayer")
+              ? setTimeout(function () {
+                  slide_one_bar_mobile.config.data.datasets[0].data[0] =
+                    context.dataset.data[index].bcPlayer;
+                  slide_one_bar_mobile.update();
+                }, delay / 4)
+              : null;
+
+            context.dataset.data[index] &&
+            context.dataset.data[index].hasOwnProperty("bcProfit")
+              ? setTimeout(function () {
+                  slide_one_bar_stacked_mobile.config.data.datasets[0].data[0] =
+                    context.dataset.data[index].bcProfit;
+                  slide_one_bar_stacked_mobile.update();
+                }, delay / 4)
+              : null;
+
+            context.dataset.data[index] &&
+            context.dataset.data[index].hasOwnProperty("bcMakeup")
+              ? setTimeout(function () {
+                  slide_one_bar_stacked_mobile.config.data.datasets[1].data[0] =
+                    context.dataset.data[index].bcMakeup;
+                  slide_one_bar_stacked_mobile.update();
                 }, delay / 4)
               : null;
           }
@@ -594,28 +789,28 @@ var slide_three_linear = {
 
 var slide_static = {
   responsive: true,
-      maintainAspectRatio: false,
-    type: "bar",
-    data: {
-  labels: ["", "", ""],
-      datasets: [
-    {
-      label: "added $/game",
-      data: [1.8, 3.5, 5.8],
-      backgroundColor: [
-        "rgb(118,212,143)",
-        "rgb(118,212,143)",
-        "rgb(118,212,143)",
-      ],
-      borderColor: [
-        "rgb(118,212,143)",
-        "rgb(118,212,143)",
-        "rgb(118,212,143)",
-      ],
-      borderWidth: 1,
-    },
-  ],
-},
+  maintainAspectRatio: false,
+  type: "bar",
+  data: {
+    labels: ["", "", ""],
+    datasets: [
+      {
+        label: "added $/game",
+        data: [1.8, 3.5, 5.8],
+        backgroundColor: [
+          "rgb(118,212,143)",
+          "rgb(118,212,143)",
+          "rgb(118,212,143)",
+        ],
+        borderColor: [
+          "rgb(118,212,143)",
+          "rgb(118,212,143)",
+          "rgb(118,212,143)",
+        ],
+        borderWidth: 1,
+      },
+    ],
+  },
   options: {
     gridLines: {
       drawOnChartArea: true,
@@ -623,19 +818,19 @@ var slide_static = {
     legend: {
       labels: {
         boxWidth: 12,
-            fontSize: 12,
-            fontColor: "#ffffff",
-            fontFamily: "Ubuntu",
+        fontSize: 12,
+        fontColor: "#ffffff",
+        fontFamily: "Ubuntu",
       },
       position: "right",
-          align: "start",
-          display: true,
+      align: "start",
+      display: true,
     },
     label: {
       display: false,
     },
     responsive: true,
-        scales: {
+    scales: {
       xAxes: [
         {
           barPercentage: 0.4,
@@ -650,7 +845,7 @@ var slide_static = {
           },
         },
       ],
-          yAxes: [
+      yAxes: [
         {
           ticks: {
             beginAtZero: true,
@@ -664,18 +859,23 @@ var slide_static = {
       ],
     },
   },
-}
-
+};
 
 //slide-one charts
 function getChartConfig() {
   return {
-    linear: [slide_one_linear, slide_two_linear, slide_three_linear],
+    linear: [
+      slide_one_linear,
+      slide_two_linear,
+      slide_three_linear,
+      slide_one_linear_mobile,
+    ],
     stacked: [
       slide_one_bar_stacked,
       slide_two_bar_stacked,
       slide_three_bar_stacked,
+      slide_one_bar_stacked_mobile,
     ],
-    bar: [slide_one_bar, slide_two_bar, slide_three_bar],
+    bar: [slide_one_bar, slide_two_bar, slide_three_bar, slide_one_bar_mobile],
   };
 }
