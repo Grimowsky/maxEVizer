@@ -133,7 +133,7 @@ var slide_two_bar_mobile = {
   data: {
     datasets: [
       {
-        data: [0],
+        data: [547],
         backgroundColor: "#76d48f",
       },
     ],
@@ -219,7 +219,7 @@ var slide_three_bar_mobile = {
   data: {
     datasets: [
       {
-        data: [0],
+        data: [587],
         backgroundColor: "#76d48f",
       },
     ],
@@ -416,13 +416,13 @@ var slide_two_bar_stacked_mobile = {
   data: {
     datasets: [
       {
-        data: [0],
+        data: [265],
         backgroundColor: "#76d48f",
         // borderColor: ["rgba(255,99,132,1)"],
         // borderWidth: 2,
       },
       {
-        data: [0],
+        data: [282],
         backgroundColor: "#fb4f59",
         // borderColor: ["rgba(255, 159, 64, 1)"],
         // borderWidth: 2,
@@ -518,13 +518,13 @@ var slide_three_bar_stacked_mobile = {
   data: {
     datasets: [
       {
-        data: [0],
+        data: [458],
         backgroundColor: "#76d48f",
         // borderColor: ["rgba(255,99,132,1)"],
         // borderWidth: 2,
       },
       {
-        data: [0],
+        data: [129],
         backgroundColor: "#fb4f59",
         // borderColor: ["rgba(255, 159, 64, 1)"],
         // borderWidth: 2,
@@ -821,69 +821,6 @@ var slide_two_linear_mobile = {
         pointRadius: 0,
         data: data_2,
         fill: true,
-        animation: (context) => {
-          var delay = 0;
-          var index = context.dataIndex;
-          if (!started2[index]) {
-            delay = index * delayBetweenPoints2;
-            started2[index] = true;
-
-            context.dataset.data[index] &&
-            context.dataset.data[index].hasOwnProperty("bcPlayer")
-              ? setTimeout(function () {
-                  slide_two_bar_mobile.config.data.datasets[0].data[0] =
-                    context.dataset.data[index].bcPlayer;
-                  slide_two_bar_mobile.update();
-                }, delay / 4)
-              : null;
-
-            context.dataset.data[index] &&
-            context.dataset.data[index].hasOwnProperty("bcProfit")
-              ? setTimeout(function () {
-                  slide_two_bar_stacked_mobile.config.data.datasets[0].data[0] =
-                    context.dataset.data[index].bcProfit;
-                  slide_two_bar_stacked_mobile.update();
-                }, delay / 4)
-              : null;
-
-            context.dataset.data[index] &&
-            context.dataset.data[index].hasOwnProperty("bcMakeup")
-              ? setTimeout(function () {
-                  slide_two_bar_stacked_mobile.config.data.datasets[1].data[0] =
-                    context.dataset.data[index].bcMakeup;
-                  slide_two_bar_stacked_mobile.update();
-                }, delay / 4)
-              : null;
-          }
-          var { x, y } =
-            index > 0
-              ? context.chart
-                  .getDatasetMeta(0)
-                  .data[index - 1].getProps(["x", "y"], true)
-              : { x: 0, y: 0 };
-
-          return {
-            x: {
-              easing: "linear",
-              duration: delayBetweenPoints2 * 500,
-              from: x,
-              delay: delay,
-            },
-            y: {
-              // easing: "linear",
-              // duration: delayBetweenPoints2 * 500,
-              // from: y,
-              // delay: delay,
-            },
-            skip: {
-              type: "boolean",
-              duration: delayBetweenPoints2,
-              from: true,
-              to: false,
-              delay: delay / 4,
-            },
-          };
-        },
       },
       {
         data: [0, 1150],
@@ -1026,69 +963,6 @@ var slide_three_linear_mobile = {
         pointRadius: 0,
         data: data_3,
         fill: true,
-        animation: (context) => {
-          var delay = 0;
-          var index = context.dataIndex;
-          if (!started3[index]) {
-            delay = index * delayBetweenPoints3;
-            started3[index] = true;
-
-            context.dataset.data[index] &&
-            context.dataset.data[index].hasOwnProperty("bcPlayer")
-              ? setTimeout(function () {
-                  slide_three_bar_mobile.config.data.datasets[0].data[0] =
-                    context.dataset.data[index].bcPlayer;
-                  slide_three_bar_mobile.update();
-                }, delay / 4)
-              : null;
-
-            context.dataset.data[index] &&
-            context.dataset.data[index].hasOwnProperty("bcProfit")
-              ? setTimeout(function () {
-                  slide_three_bar_stacked_mobile.config.data.datasets[0].data[0] =
-                    context.dataset.data[index].bcProfit;
-                  slide_three_bar_stacked_mobile.update();
-                }, delay / 4)
-              : null;
-
-            context.dataset.data[index] &&
-            context.dataset.data[index].hasOwnProperty("bcMakeup")
-              ? setTimeout(function () {
-                  slide_three_bar_stacked_mobile.config.data.datasets[1].data[0] =
-                    context.dataset.data[index].bcMakeup;
-                  slide_three_bar_stacked_mobile.update();
-                }, delay / 4)
-              : null;
-          }
-          var { x, y } =
-            index > 0
-              ? context.chart
-                  .getDatasetMeta(0)
-                  .data[index - 1].getProps(["x", "y"], true)
-              : { x: 0, y: 0 };
-
-          return {
-            x: {
-              easing: "linear",
-              duration: delayBetweenPoints3 * 500,
-              from: x,
-              delay: delay,
-            },
-            y: {
-              // easing: "linear",
-              // duration: delayBetweenPoints3 * 500,
-              // from: y,
-              // delay: delay,
-            },
-            skip: {
-              type: "boolean",
-              duration: delayBetweenPoints3,
-              from: true,
-              to: false,
-              delay: delay / 4,
-            },
-          };
-        },
       },
       {
         data: [0, 1150],

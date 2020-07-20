@@ -942,14 +942,14 @@
       var slide_two_bar_stacked = new Chart(ctx_2_2, config.stacked[1]);
 
       //slide-two-mobile
-      var ctx_2_1_mobile = document.getElementById("slide-two-bar-mobile");
-      var slide_two_bar_mobile = new Chart(ctx_2_1_mobile, config.bar[4]);
-
-      var ctx_2_2_mobile = document.getElementById("slide-two-stacked-mobile");
-      var slide_two_bar_stacked_mobile = new Chart(
-        ctx_2_2_mobile,
-        config.stacked[4]
-      );
+      // var ctx_2_1_mobile = document.getElementById("slide-two-bar-mobile");
+      // var slide_two_bar_mobile = new Chart(ctx_2_1_mobile, config.bar[4]);
+      //
+      // var ctx_2_2_mobile = document.getElementById("slide-two-stacked-mobile");
+      // var slide_two_bar_stacked_mobile = new Chart(
+      //   ctx_2_2_mobile,
+      //   config.stacked[4]
+      // );
 
       // //slide-three-charts
       var ctx_3_1 = document.getElementById("slide-three-bar");
@@ -960,16 +960,16 @@
 
       //slide three mobile
 
-      var ctx_3_1_mobile = document.getElementById("slide-three-bar-mobile");
-      var slide_three_bar_mobile = new Chart(ctx_3_1_mobile, config.bar[5]);
-
-      var ctx_3_2_mobile = document.getElementById(
-        "slide-three-stacked-mobile"
-      );
-      var slide_three_bar_stacked_mobile = new Chart(
-        ctx_3_2_mobile,
-        config.stacked[5]
-      );
+      // var ctx_3_1_mobile = document.getElementById("slide-three-bar-mobile");
+      // var slide_three_bar_mobile = new Chart(ctx_3_1_mobile, config.bar[5]);
+      //
+      // var ctx_3_2_mobile = document.getElementById(
+      //   "slide-three-stacked-mobile"
+      // );
+      // var slide_three_bar_stacked_mobile = new Chart(
+      //   ctx_3_2_mobile,
+      //   config.stacked[5]
+      // );
 
       var ctx_4_1 = document.getElementById("slide-bar-multiple");
       var slide_static = new Chart(ctx_4_1, slide_static);
@@ -1001,12 +1001,34 @@
             .getElementById("slide-two-linear-mobile")
             .getContext("2d");
           var slide_two_linear = new ChartV1(ctx_2_3, config.linear[4]);
+          var ctx_2_1_mobile = document.getElementById("slide-two-bar-mobile");
+          var slide_two_bar_mobile = new Chart(ctx_2_1_mobile, config.bar[4]);
+
+          var ctx_2_2_mobile = document.getElementById(
+            "slide-two-stacked-mobile"
+          );
+          var slide_two_bar_stacked_mobile = new Chart(
+            ctx_2_2_mobile,
+            config.stacked[4]
+          );
           shouldDrawChartMobile[index] = false;
         } else if (shouldDrawChartMobile[index] === true && index === 8) {
           var ctx_3_3 = document
             .getElementById("slide-three-linear-mobile")
             .getContext("2d");
           var slide_three_linear = new ChartV1(ctx_3_3, config.linear[5]);
+          var ctx_3_1_mobile = document.getElementById(
+            "slide-three-bar-mobile"
+          );
+          var slide_three_bar_mobile = new Chart(ctx_3_1_mobile, config.bar[5]);
+
+          var ctx_3_2_mobile = document.getElementById(
+            "slide-three-stacked-mobile"
+          );
+          var slide_three_bar_stacked_mobile = new Chart(
+            ctx_3_2_mobile,
+            config.stacked[5]
+          );
           shouldDrawChartMobile[index] = false;
         }
       }
