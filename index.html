@@ -925,14 +925,14 @@
       var slide_one_bar_stacked = new Chart(ctx11, config.stacked[0]);
 
       // mobile slide-one
-      var ctx_mobile = document.getElementById("chart-three-stacked-mobile");
-      var slide_one_bar_mobile = new Chart(ctx_mobile, config.bar[3]);
+      // var ctx_mobile = document.getElementById("chart-three-stacked-mobile");
+      // var slide_one_bar_mobile = new Chart(ctx_mobile, config.bar[3]);
 
-      var ctx11_mobile = document.getElementById("chart-two-stacked-mobile");
-      var slide_one_bar_stacked_mobile = new Chart(
-        ctx11_mobile,
-        config.stacked[3]
-      );
+      // var ctx11_mobile = document.getElementById("chart-two-stacked-mobile");
+      // var slide_one_bar_stacked_mobile = new Chart(
+      //   ctx11_mobile,
+      //   config.stacked[3]
+      // );
 
       //slide-two-charts
       var ctx_2_1 = document.getElementById("slide-two-bar");
@@ -977,10 +977,24 @@
       function drawMobileCharts(index, shouldDrawChartMobile) {
         console.log("triggered", index, shouldDrawChartMobile);
         if (shouldDrawChartMobile[index] === true && index === 2) {
-          var ctx2 = document
+          var ctx2_mobile = document
             .getElementById("chart-one-mobile")
             .getContext("2d");
-          var slide_one_linear = new ChartV1(ctx2, config.linear[3]);
+          var slide_one_linear_mobile = new ChartV1(
+            ctx2_mobile,
+            config.linear[3]
+          );
+          var ctx_mobile = document.getElementById(
+            "chart-three-stacked-mobile"
+          );
+          var slide_one_bar_mobile = new Chart(ctx_mobile, config.bar[3]);
+          var ctx11_mobile = document.getElementById(
+            "chart-two-stacked-mobile"
+          );
+          var slide_one_bar_stacked_mobile = new Chart(
+            ctx11_mobile,
+            config.stacked[3]
+          );
           shouldDrawChartMobile[index] = false;
         } else if (shouldDrawChartMobile[index] === true && index === 6) {
           var ctx_2_3 = document
