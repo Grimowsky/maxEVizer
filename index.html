@@ -240,9 +240,34 @@
           <header>
             <img class="" src="./img/logo-web@2x.png" />
           </header>
-          <div class="">
-            <!--            <div><img src="./img/bar-graph.PNG" /></div>-->
-            <!--            <div><img src="./img/line-graph.PNG" /></div>-->
+          <div class="mobile-charts">
+            <div class="chart-legend">
+              <span class="profit">
+                player's profit
+              </span>
+              <span class="loss">
+                backer's loss in make up
+              </span>
+            </div>
+            <div class="bar-container-mobile">
+              <div>
+                <canvas
+                  id="slide-three-bar-mobile"
+                  style="height: 100%; width: 100%;"
+                ></canvas>
+              </div>
+              <div>
+                <canvas
+                  id="slide-three-stacked-mobile"
+                  style="height: 100%; width: 100%;"
+                ></canvas>
+              </div>
+            </div>
+
+            <canvas
+              id="slide-three-linear-mobile"
+              style="max-height: 50%; width: 100%;"
+            ></canvas>
           </div>
           <footer>contact</footer>
         </section>
@@ -933,6 +958,19 @@
       var ctx_3_2 = document.getElementById("slide-three-stacked");
       var slide_three_bar_stacked = new Chart(ctx_3_2, config.stacked[2]);
 
+      //slide three mobile
+
+      var ctx_3_1_mobile = document.getElementById("slide-three-bar-mobile");
+      var slide_three_bar_mobile = new Chart(ctx_3_1_mobile, config.bar[5]);
+
+      var ctx_3_2_mobile = document.getElementById(
+        "slide-three-stacked-mobile"
+      );
+      var slide_three_bar_stacked_mobile = new Chart(
+        ctx_3_2_mobile,
+        config.stacked[5]
+      );
+
       var ctx_4_1 = document.getElementById("slide-bar-multiple");
       var slide_static = new Chart(ctx_4_1, slide_static);
 
@@ -949,6 +987,12 @@
             .getElementById("slide-two-linear-mobile")
             .getContext("2d");
           var slide_two_linear = new ChartV1(ctx_2_3, config.linear[4]);
+          shouldDrawChartMobile[index] = false;
+        } else if (shouldDrawChartMobile[index] === true && index === 8) {
+          var ctx_3_3 = document
+            .getElementById("slide-three-linear-mobile")
+            .getContext("2d");
+          var slide_three_linear = new ChartV1(ctx_3_3, config.linear[5]);
           shouldDrawChartMobile[index] = false;
         }
       }

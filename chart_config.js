@@ -212,6 +212,50 @@ var slide_three_bar = {
     },
   },
 };
+
+var slide_three_bar_mobile = {
+  maintainAspectRatio: false,
+  type: "bar",
+  data: {
+    datasets: [
+      {
+        data: [0],
+        backgroundColor: "#76d48f",
+      },
+    ],
+  },
+  options: {
+    legend: {
+      display: false,
+    },
+    tooltips: {
+      enabled: true,
+    },
+    scales: {
+      yAxes: [
+        {
+          stacked: false,
+          ticks: {
+            beginAtZero: true,
+            display: false,
+            suggestedMin: 0,
+            max: 1250,
+          },
+        },
+      ],
+      xAxes: [
+        {
+          stacked: false,
+          ticks: {
+            display: false,
+            beginAtZero: true,
+          },
+        },
+      ],
+    },
+  },
+};
+
 //#fb4f59
 var slide_one_bar_stacked = {
   maintainAspectRatio: false,
@@ -418,6 +462,57 @@ var slide_two_bar_stacked_mobile = {
 };
 
 var slide_three_bar_stacked = {
+  maintainAspectRatio: false,
+  type: "bar",
+  data: {
+    datasets: [
+      {
+        data: [0],
+        backgroundColor: "#76d48f",
+        // borderColor: ["rgba(255,99,132,1)"],
+        // borderWidth: 2,
+      },
+      {
+        data: [0],
+        backgroundColor: "#fb4f59",
+        // borderColor: ["rgba(255, 159, 64, 1)"],
+        // borderWidth: 2,
+      },
+    ],
+  },
+  options: {
+    legend: {
+      display: false,
+    },
+    tooltips: {
+      enabled: false,
+    },
+    scales: {
+      yAxes: [
+        {
+          stacked: true,
+          ticks: {
+            beginAtZero: true,
+            display: false,
+            suggestedMin: 0,
+            max: 1250,
+          },
+        },
+      ],
+      xAxes: [
+        {
+          stacked: true,
+          ticks: {
+            display: false,
+            beginAtZero: true,
+          },
+        },
+      ],
+    },
+  },
+};
+
+var slide_three_bar_stacked_mobile = {
   maintainAspectRatio: false,
   type: "bar",
   data: {
@@ -982,6 +1077,107 @@ var slide_three_linear = {
   },
 };
 
+var slide_three_linear_mobile = {
+  type: "line",
+  data: {
+    datasets: [
+      {
+        backgroundColor: "transparent",
+        fontColor: "transparent",
+        borderColor: "#fb4f59",
+        borderWidth: 1,
+        pointRadius: 0,
+        data: data_3,
+        fill: true,
+        animation: (context) => {
+          var delay = 0;
+          var index = context.dataIndex;
+          if (!started3[index]) {
+            delay = index * delayBetweenPoints3;
+            started3[index] = true;
+
+            context.dataset.data[index] &&
+            context.dataset.data[index].hasOwnProperty("bcPlayer")
+              ? setTimeout(function () {
+                  slide_three_bar_mobile.config.data.datasets[0].data[0] =
+                    context.dataset.data[index].bcPlayer;
+                  slide_three_bar_mobile.update();
+                }, delay / 4)
+              : null;
+
+            context.dataset.data[index] &&
+            context.dataset.data[index].hasOwnProperty("bcProfit")
+              ? setTimeout(function () {
+                  slide_three_bar_stacked_mobile.config.data.datasets[0].data[0] =
+                    context.dataset.data[index].bcProfit;
+                  slide_three_bar_stacked_mobile.update();
+                }, delay / 4)
+              : null;
+
+            context.dataset.data[index] &&
+            context.dataset.data[index].hasOwnProperty("bcMakeup")
+              ? setTimeout(function () {
+                  slide_three_bar_stacked_mobile.config.data.datasets[1].data[0] =
+                    context.dataset.data[index].bcMakeup;
+                  slide_three_bar_stacked_mobile.update();
+                }, delay / 4)
+              : null;
+          }
+          var { x, y } =
+            index > 0
+              ? context.chart
+                  .getDatasetMeta(0)
+                  .data[index - 1].getProps(["x", "y"], true)
+              : { x: 0, y: 0 };
+
+          return {
+            x: {
+              easing: "linear",
+              duration: delayBetweenPoints3 * 500,
+              from: x,
+              delay: delay,
+            },
+            y: {
+              // easing: "linear",
+              // duration: delayBetweenPoints3 * 500,
+              // from: y,
+              // delay: delay,
+            },
+            skip: {
+              type: "boolean",
+              duration: delayBetweenPoints3,
+              from: true,
+              to: false,
+              delay: delay / 4,
+            },
+          };
+        },
+      },
+      {
+        data: [0, 1150],
+      },
+    ],
+  },
+  options: {
+    legend: {
+      display: false,
+    },
+    scales: {
+      x: {
+        type: "linear",
+        gridLines: {
+          drawOnChartArea: false,
+        },
+      },
+      y: {
+        gridLines: {
+          drawOnChartArea: false,
+        },
+      },
+    },
+  },
+};
+
 var slide_static = {
   responsive: true,
   maintainAspectRatio: false,
@@ -1065,6 +1261,7 @@ function getChartConfig() {
       slide_three_linear,
       slide_one_linear_mobile,
       slide_two_linear_mobile,
+      slide_three_linear_mobile,
     ],
     stacked: [
       slide_one_bar_stacked,
@@ -1072,6 +1269,7 @@ function getChartConfig() {
       slide_three_bar_stacked,
       slide_one_bar_stacked_mobile,
       slide_two_bar_stacked_mobile,
+      slide_three_bar_stacked_mobile,
     ],
     bar: [
       slide_one_bar,
@@ -1079,6 +1277,7 @@ function getChartConfig() {
       slide_three_bar,
       slide_one_bar_mobile,
       slide_two_bar_mobile,
+      slide_three_bar_mobile,
     ],
   };
 }
