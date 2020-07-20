@@ -901,12 +901,21 @@
       var ctx_4_1 = document.getElementById("slide-bar-multiple");
       var slide_static = new Chart(ctx_4_1, slide_static);
 
-      function drawChart(index, shouldDrawChart) {
-        if (shouldDrawChart[index] === true && index === 1) {
+      function drawMobileCharts(index, shouldDrawChartMobile) {
+        console.log("triggered", index, shouldDrawChartMobile);
+        if (shouldDrawChartMobile[index] === true && index === 2) {
           var ctx2 = document
             .getElementById("chart-one-mobile")
             .getContext("2d");
           var slide_one_linear = new ChartV1(ctx2, config.linear[3]);
+          shouldDrawChart[index] = false;
+        }
+      }
+
+      function drawDesktopCharts(index, shouldDrawChart) {
+        if (shouldDrawChart[index] === true && index === 1) {
+          var ctx2 = document.getElementById("chart-one").getContext("2d");
+          var slide_one_linear = new ChartV1(ctx2, config.linear[0]);
           shouldDrawChart[index] = false;
         } else if (shouldDrawChart[index] === true && index === 2) {
           var ctx_2_3 = document
@@ -921,6 +930,16 @@
           var slide_three_linear = new ChartV1(ctx_3_3, config.linear[2]);
           shouldDrawChart[index] = false;
         }
+      }
+
+      function drawChart(index, shouldDrawChart, shouldDrawChartMobile) {
+        var width =
+          window.innerWidth ||
+          document.documentElement.clientWidth ||
+          document.body.clientWidth;
+        width > 1024
+          ? drawDesktopCharts(index, shouldDrawChart)
+          : drawMobileCharts(index, shouldDrawChartMobile);
       }
 
       var swiper = new Swiper(".swiper-container", {
@@ -938,8 +957,13 @@
         2: true,
         3: true,
       };
+      var shouldDrawChartMobile = {
+        3: true,
+        90: true,
+        99: true,
+      };
       swiper.on("slideChange", function () {
-        drawChart(swiper.activeIndex, shouldDrawChart);
+        drawChart(swiper.activeIndex, shouldDrawChart, shouldDrawChartMobile);
       });
 
       function next() {
