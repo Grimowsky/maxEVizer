@@ -47,7 +47,7 @@ var slide_one_bar_mobile = {
   data: {
     datasets: [
       {
-        data: [0],
+        data: [301],
         backgroundColor: "#76d48f",
       },
     ],
@@ -314,13 +314,13 @@ var slide_one_bar_stacked_mobile = {
   data: {
     datasets: [
       {
-        data: [0],
+        data: [19],
         backgroundColor: "#76d48f",
         // borderColor: ["rgba(255,99,132,1)"],
         // borderWidth: 2,
       },
       {
-        data: [0],
+        data: [282],
         backgroundColor: "#fb4f59",
         // borderColor: ["rgba(255, 159, 64, 1)"],
         // borderWidth: 2,
@@ -679,69 +679,6 @@ var slide_one_linear_mobile = {
         pointRadius: 0,
         data: data,
         fill: true,
-        animation: (context) => {
-          var delay = 0;
-          var index = context.dataIndex;
-          if (!started[index]) {
-            delay = index * delayBetweenPoints;
-            started[index] = true;
-
-            context.dataset.data[index] &&
-            context.dataset.data[index].hasOwnProperty("bcPlayer")
-              ? setTimeout(function () {
-                  slide_one_bar_mobile.config.data.datasets[0].data[0] =
-                    context.dataset.data[index].bcPlayer;
-                  slide_one_bar_mobile.update();
-                }, delay / 4)
-              : null;
-
-            context.dataset.data[index] &&
-            context.dataset.data[index].hasOwnProperty("bcProfit")
-              ? setTimeout(function () {
-                  slide_one_bar_stacked_mobile.config.data.datasets[0].data[0] =
-                    context.dataset.data[index].bcProfit;
-                  slide_one_bar_stacked_mobile.update();
-                }, delay / 4)
-              : null;
-
-            context.dataset.data[index] &&
-            context.dataset.data[index].hasOwnProperty("bcMakeup")
-              ? setTimeout(function () {
-                  slide_one_bar_stacked_mobile.config.data.datasets[1].data[0] =
-                    context.dataset.data[index].bcMakeup;
-                  slide_one_bar_stacked_mobile.update();
-                }, delay / 4)
-              : null;
-          }
-          var { x, y } =
-            index > 0
-              ? context.chart
-                  .getDatasetMeta(0)
-                  .data[index - 1].getProps(["x", "y"], true)
-              : { x: 0, y: 0 };
-
-          return {
-            x: {
-              easing: "linear",
-              duration: delayBetweenPoints * 500,
-              from: x,
-              delay: delay,
-            },
-            y: {
-              // easing: "linear",
-              // duration: delayBetweenPoints * 500,
-              // from: y,
-              // delay: delay,
-            },
-            skip: {
-              type: "boolean",
-              duration: delayBetweenPoints,
-              from: true,
-              to: false,
-              delay: delay / 4,
-            },
-          };
-        },
       },
       {
         data: [0, 1150],
