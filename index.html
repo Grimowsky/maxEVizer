@@ -185,9 +185,34 @@
           <header>
             <img class="" src="./img/logo-web@2x.png" />
           </header>
-          <div class="">
-            <!--            <div><img src="./img/bar-graph.PNG" /></div>-->
-            <!--            <div><img src="./img/line-graph.PNG" /></div>-->
+          <div class="mobile-charts">
+            <div class="chart-legend">
+              <span class="profit">
+                player's profit
+              </span>
+              <span class="loss">
+                backer's loss in make up
+              </span>
+            </div>
+            <div class="bar-container-mobile">
+              <div>
+                <canvas
+                  id="slide-two-bar-mobile"
+                  style="height: 100%; width: 100%;"
+                ></canvas>
+              </div>
+              <div>
+                <canvas
+                  id="slide-two-stacked-mobile"
+                  style="height: 100%; width: 100%;"
+                ></canvas>
+              </div>
+            </div>
+
+            <canvas
+              id="slide-two-linear-mobile"
+              style="max-height: 50%; width: 100%;"
+            ></canvas>
           </div>
           <footer>contact</footer>
         </section>
@@ -215,9 +240,34 @@
           <header>
             <img class="" src="./img/logo-web@2x.png" />
           </header>
-          <div class="">
-            <!--            <div><img src="./img/bar-graph.PNG" /></div>-->
-            <!--            <div><img src="./img/line-graph.PNG" /></div>-->
+          <div class="mobile-charts">
+            <div class="chart-legend">
+              <span class="profit">
+                player's profit
+              </span>
+              <span class="loss">
+                backer's loss in make up
+              </span>
+            </div>
+            <div class="bar-container-mobile">
+              <div>
+                <canvas
+                  id="slide-three-bar-mobile"
+                  style="height: 100%; width: 100%;"
+                ></canvas>
+              </div>
+              <div>
+                <canvas
+                  id="slide-three-stacked-mobile"
+                  style="height: 100%; width: 100%;"
+                ></canvas>
+              </div>
+            </div>
+
+            <canvas
+              id="slide-three-linear-mobile"
+              style="max-height: 50%; width: 100%;"
+            ></canvas>
           </div>
           <footer>contact</footer>
         </section>
@@ -891,6 +941,16 @@
       var ctx_2_2 = document.getElementById("slide-two-stacked");
       var slide_two_bar_stacked = new Chart(ctx_2_2, config.stacked[1]);
 
+      //slide-two-mobile
+      var ctx_2_1_mobile = document.getElementById("slide-two-bar-mobile");
+      var slide_two_bar_mobile = new Chart(ctx_2_1_mobile, config.bar[4]);
+
+      var ctx_2_2_mobile = document.getElementById("slide-two-stacked-mobile");
+      var slide_two_bar_stacked_mobile = new Chart(
+        ctx_2_2_mobile,
+        config.stacked[4]
+      );
+
       // //slide-three-charts
       var ctx_3_1 = document.getElementById("slide-three-bar");
       var slide_three_bar = new Chart(ctx_3_1, config.bar[2]);
@@ -898,15 +958,49 @@
       var ctx_3_2 = document.getElementById("slide-three-stacked");
       var slide_three_bar_stacked = new Chart(ctx_3_2, config.stacked[2]);
 
+      //slide three mobile
+
+      var ctx_3_1_mobile = document.getElementById("slide-three-bar-mobile");
+      var slide_three_bar_mobile = new Chart(ctx_3_1_mobile, config.bar[5]);
+
+      var ctx_3_2_mobile = document.getElementById(
+        "slide-three-stacked-mobile"
+      );
+      var slide_three_bar_stacked_mobile = new Chart(
+        ctx_3_2_mobile,
+        config.stacked[5]
+      );
+
       var ctx_4_1 = document.getElementById("slide-bar-multiple");
       var slide_static = new Chart(ctx_4_1, slide_static);
 
-      function drawChart(index, shouldDrawChart) {
-        if (shouldDrawChart[index] === true && index === 1) {
+      function drawMobileCharts(index, shouldDrawChartMobile) {
+        console.log("triggered", index, shouldDrawChartMobile);
+        if (shouldDrawChartMobile[index] === true && index === 2) {
           var ctx2 = document
             .getElementById("chart-one-mobile")
             .getContext("2d");
           var slide_one_linear = new ChartV1(ctx2, config.linear[3]);
+          shouldDrawChartMobile[index] = false;
+        } else if (shouldDrawChartMobile[index] === true && index === 6) {
+          var ctx_2_3 = document
+            .getElementById("slide-two-linear-mobile")
+            .getContext("2d");
+          var slide_two_linear = new ChartV1(ctx_2_3, config.linear[4]);
+          shouldDrawChartMobile[index] = false;
+        } else if (shouldDrawChartMobile[index] === true && index === 8) {
+          var ctx_3_3 = document
+            .getElementById("slide-three-linear-mobile")
+            .getContext("2d");
+          var slide_three_linear = new ChartV1(ctx_3_3, config.linear[5]);
+          shouldDrawChartMobile[index] = false;
+        }
+      }
+
+      function drawDesktopCharts(index, shouldDrawChart) {
+        if (shouldDrawChart[index] === true && index === 1) {
+          var ctx2 = document.getElementById("chart-one").getContext("2d");
+          var slide_one_linear = new ChartV1(ctx2, config.linear[0]);
           shouldDrawChart[index] = false;
         } else if (shouldDrawChart[index] === true && index === 2) {
           var ctx_2_3 = document
@@ -921,6 +1015,17 @@
           var slide_three_linear = new ChartV1(ctx_3_3, config.linear[2]);
           shouldDrawChart[index] = false;
         }
+      }
+
+      function drawChart(index, shouldDrawChart, shouldDrawChartMobile) {
+        var width =
+          window.innerWidth ||
+          document.documentElement.clientWidth ||
+          document.body.clientWidth;
+
+        width > 1024
+          ? drawDesktopCharts(index, shouldDrawChart)
+          : drawMobileCharts(index, shouldDrawChartMobile);
       }
 
       var swiper = new Swiper(".swiper-container", {
@@ -938,8 +1043,13 @@
         2: true,
         3: true,
       };
+      var shouldDrawChartMobile = {
+        2: true,
+        6: true,
+        8: true,
+      };
       swiper.on("slideChange", function () {
-        drawChart(swiper.activeIndex, shouldDrawChart);
+        drawChart(swiper.activeIndex, shouldDrawChart, shouldDrawChartMobile);
       });
 
       function next() {
