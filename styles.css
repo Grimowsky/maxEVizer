@@ -540,7 +540,7 @@ div.col-2 {
   border: 3px solid #000;
   box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.3);
   width: 100%;
-  max-width: 12vw;
+  max-width: 16vw;
   object-fit: cover;
 }
 
