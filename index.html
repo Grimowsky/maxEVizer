@@ -522,25 +522,64 @@
                   results of their analysis and final profitability
                 </p>
               </div>
+<!--              <div class="col-4">-->
+<!--                <div class="col-4-1">-->
+<!--                  <div class="stacked-wrapper">-->
+<!--                    <canvas-->
+<!--                      id="slide-two-stacked"-->
+<!--                      style="height: 100%; width: 100%;"-->
+<!--                    ></canvas>-->
+<!--                  </div>-->
+<!--                  <div class="stacked-wrapper">-->
+<!--                    <canvas-->
+<!--                      id="slide-two-bar"-->
+<!--                      style="height: 100%; width: 100%;"-->
+<!--                    ></canvas>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="col-4-2">-->
+<!--                  <canvas-->
+<!--                    id="slide-two-linear"-->
+<!--                    style="max-height: 100%; width: 100%;"-->
+<!--                  ></canvas>-->
+<!--                </div>-->
+<!--                <div class="break"></div>-->
+<!--                &lt;!&ndash; break &ndash;&gt;-->
+<!--                <div class="col-4-3">-->
+<!--                  <div class="chart-desc">-->
+<!--                    <span> backers net result </span>-->
+<!--                    <span> players net result </span>-->
+<!--                  </div>-->
+
+<!--                  <div class="chart-legend">-->
+<!--                    <span class="profit">-->
+<!--                      player's profit-->
+<!--                    </span>-->
+<!--                    <span class="loss">-->
+<!--                      backer's loss in make up-->
+<!--                    </span>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
               <div class="col-4">
                 <div class="col-4-1">
                   <div class="stacked-wrapper">
                     <canvas
-                      id="slide-two-stacked"
-                      style="height: 100%; width: 100%;"
+                            id="slide-two-stacked"
+                            style="height: 100%; width: 100%;"
                     ></canvas>
                   </div>
                   <div class="stacked-wrapper">
                     <canvas
-                      id="slide-two-bar"
-                      style="height: 100%; width: 100%;"
+                            id="slide-two-bar"
+                            style="height: 100%; width: 100%;"
                     ></canvas>
                   </div>
                 </div>
                 <div class="col-4-2">
                   <canvas
-                    id="slide-two-linear"
-                    style="max-height: 100%; width: 100%;"
+                          id="slide-two-linear"
+                          style="max-height: 100%; width: 100%;"
                   ></canvas>
                 </div>
                 <div class="break"></div>
@@ -913,10 +952,13 @@
 
     <script>
       var config = getChartConfig();
-
+      console.log(ChartV1.defaults);
       ChartV1.defaults.scale.gridLines.color = "#ffffff";
       ChartV1.defaults.scale.gridLines.drawTicks = false;
+      ChartV1.defaults.scale.gridLines.lineWidth = 2;
       ChartV1.defaults.fontColor = "transparent";
+
+
 
       var ctx = document.getElementById("chart-three-stacked");
       var slide_one_bar = new Chart(ctx, config.bar[0]);
@@ -975,7 +1017,6 @@
       var slide_static = new Chart(ctx_4_1, slide_static);
 
       function drawMobileCharts(index, shouldDrawChartMobile) {
-        console.log("triggered", index, shouldDrawChartMobile);
         if (shouldDrawChartMobile[index] === true && index === 2) {
           var ctx2_mobile = document
             .getElementById("chart-one-mobile")
@@ -1092,7 +1133,7 @@
         swiper.slideNext();
       }
       function slideToContact() {
-        swiper.slideTo(7);
+        swiper.slideTo(8);
       }
     </script>
   </body>

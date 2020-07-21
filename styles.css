@@ -454,6 +454,7 @@ div.col-2 {
   min-height: 50%;
   display: inline-flex;
   flex-direction: column;
+  justify-content: flex-end;
 }
 
 .col-4-3 {

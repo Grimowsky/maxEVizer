@@ -573,7 +573,7 @@ var slide_one_linear = {
       {
         backgroundColor: "transparent",
         fontColor: "transparent",
-        borderColor: "rgb(251,79,89)",
+        borderColor: "#76d48f",
         borderWidth: 1,
         pointRadius: 0,
         data: data,
@@ -674,7 +674,7 @@ var slide_one_linear_mobile = {
       {
         backgroundColor: "transparent",
         fontColor: "transparent",
-        borderColor: "rgb(251,79,89)",
+        borderColor: "#76d48f",
         borderWidth: 1,
         pointRadius: 0,
         data: data,
@@ -715,7 +715,7 @@ var slide_two_linear = {
       {
         backgroundColor: "transparent",
         fontColor: "transparent",
-        borderColor: "#fb4f59",
+        borderColor: "#76d48f",
         borderWidth: 1,
         pointRadius: 0,
         data: data_2,
@@ -816,7 +816,7 @@ var slide_two_linear_mobile = {
       {
         backgroundColor: "transparent",
         fontColor: "transparent",
-        borderColor: "#fb4f59",
+        borderColor: "#76d48f",
         borderWidth: 1,
         pointRadius: 0,
         data: data_2,
@@ -857,7 +857,7 @@ var slide_three_linear = {
       {
         backgroundColor: "transparent",
         fontColor: "transparent",
-        borderColor: "#fb4f59",
+        borderColor: "#76d48f",
         borderWidth: 1,
         pointRadius: 0,
         data: data_3,
@@ -958,7 +958,7 @@ var slide_three_linear_mobile = {
       {
         backgroundColor: "transparent",
         fontColor: "transparent",
-        borderColor: "#fb4f59",
+        borderColor: "#76d48f",
         borderWidth: 1,
         pointRadius: 0,
         data: data_3,
