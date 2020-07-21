@@ -522,25 +522,64 @@
                   results of their analysis and final profitability
                 </p>
               </div>
+<!--              <div class="col-4">-->
+<!--                <div class="col-4-1">-->
+<!--                  <div class="stacked-wrapper">-->
+<!--                    <canvas-->
+<!--                      id="slide-two-stacked"-->
+<!--                      style="height: 100%; width: 100%;"-->
+<!--                    ></canvas>-->
+<!--                  </div>-->
+<!--                  <div class="stacked-wrapper">-->
+<!--                    <canvas-->
+<!--                      id="slide-two-bar"-->
+<!--                      style="height: 100%; width: 100%;"-->
+<!--                    ></canvas>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="col-4-2">-->
+<!--                  <canvas-->
+<!--                    id="slide-two-linear"-->
+<!--                    style="max-height: 100%; width: 100%;"-->
+<!--                  ></canvas>-->
+<!--                </div>-->
+<!--                <div class="break"></div>-->
+<!--                &lt;!&ndash; break &ndash;&gt;-->
+<!--                <div class="col-4-3">-->
+<!--                  <div class="chart-desc">-->
+<!--                    <span> backers net result </span>-->
+<!--                    <span> players net result </span>-->
+<!--                  </div>-->
+
+<!--                  <div class="chart-legend">-->
+<!--                    <span class="profit">-->
+<!--                      player's profit-->
+<!--                    </span>-->
+<!--                    <span class="loss">-->
+<!--                      backer's loss in make up-->
+<!--                    </span>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
               <div class="col-4">
                 <div class="col-4-1">
                   <div class="stacked-wrapper">
                     <canvas
-                      id="slide-two-stacked"
-                      style="height: 100%; width: 100%;"
+                            id="slide-two-stacked"
+                            style="height: 100%; width: 100%;"
                     ></canvas>
                   </div>
                   <div class="stacked-wrapper">
                     <canvas
-                      id="slide-two-bar"
-                      style="height: 100%; width: 100%;"
+                            id="slide-two-bar"
+                            style="height: 100%; width: 100%;"
                     ></canvas>
                   </div>
                 </div>
                 <div class="col-4-2">
                   <canvas
-                    id="slide-two-linear"
-                    style="max-height: 100%; width: 100%;"
+                          id="slide-two-linear"
+                          style="max-height: 100%; width: 100%;"
                   ></canvas>
                 </div>
                 <div class="break"></div>
@@ -913,10 +952,13 @@
 
     <script>
       var config = getChartConfig();
-
+      console.log(ChartV1.defaults);
       ChartV1.defaults.scale.gridLines.color = "#ffffff";
       ChartV1.defaults.scale.gridLines.drawTicks = false;
+      ChartV1.defaults.scale.gridLines.lineWidth = 2;
       ChartV1.defaults.fontColor = "transparent";
+
+
 
       var ctx = document.getElementById("chart-three-stacked");
       var slide_one_bar = new Chart(ctx, config.bar[0]);
@@ -942,14 +984,14 @@
       var slide_two_bar_stacked = new Chart(ctx_2_2, config.stacked[1]);
 
       //slide-two-mobile
-      var ctx_2_1_mobile = document.getElementById("slide-two-bar-mobile");
-      var slide_two_bar_mobile = new Chart(ctx_2_1_mobile, config.bar[4]);
-
-      var ctx_2_2_mobile = document.getElementById("slide-two-stacked-mobile");
-      var slide_two_bar_stacked_mobile = new Chart(
-        ctx_2_2_mobile,
-        config.stacked[4]
-      );
+      // var ctx_2_1_mobile = document.getElementById("slide-two-bar-mobile");
+      // var slide_two_bar_mobile = new Chart(ctx_2_1_mobile, config.bar[4]);
+      //
+      // var ctx_2_2_mobile = document.getElementById("slide-two-stacked-mobile");
+      // var slide_two_bar_stacked_mobile = new Chart(
+      //   ctx_2_2_mobile,
+      //   config.stacked[4]
+      // );
 
       // //slide-three-charts
       var ctx_3_1 = document.getElementById("slide-three-bar");
@@ -960,22 +1002,21 @@
 
       //slide three mobile
 
-      var ctx_3_1_mobile = document.getElementById("slide-three-bar-mobile");
-      var slide_three_bar_mobile = new Chart(ctx_3_1_mobile, config.bar[5]);
-
-      var ctx_3_2_mobile = document.getElementById(
-        "slide-three-stacked-mobile"
-      );
-      var slide_three_bar_stacked_mobile = new Chart(
-        ctx_3_2_mobile,
-        config.stacked[5]
-      );
+      // var ctx_3_1_mobile = document.getElementById("slide-three-bar-mobile");
+      // var slide_three_bar_mobile = new Chart(ctx_3_1_mobile, config.bar[5]);
+      //
+      // var ctx_3_2_mobile = document.getElementById(
+      //   "slide-three-stacked-mobile"
+      // );
+      // var slide_three_bar_stacked_mobile = new Chart(
+      //   ctx_3_2_mobile,
+      //   config.stacked[5]
+      // );
 
       var ctx_4_1 = document.getElementById("slide-bar-multiple");
       var slide_static = new Chart(ctx_4_1, slide_static);
 
       function drawMobileCharts(index, shouldDrawChartMobile) {
-        console.log("triggered", index, shouldDrawChartMobile);
         if (shouldDrawChartMobile[index] === true && index === 2) {
           var ctx2_mobile = document
             .getElementById("chart-one-mobile")
@@ -1001,12 +1042,34 @@
             .getElementById("slide-two-linear-mobile")
             .getContext("2d");
           var slide_two_linear = new ChartV1(ctx_2_3, config.linear[4]);
+          var ctx_2_1_mobile = document.getElementById("slide-two-bar-mobile");
+          var slide_two_bar_mobile = new Chart(ctx_2_1_mobile, config.bar[4]);
+
+          var ctx_2_2_mobile = document.getElementById(
+            "slide-two-stacked-mobile"
+          );
+          var slide_two_bar_stacked_mobile = new Chart(
+            ctx_2_2_mobile,
+            config.stacked[4]
+          );
           shouldDrawChartMobile[index] = false;
         } else if (shouldDrawChartMobile[index] === true && index === 8) {
           var ctx_3_3 = document
             .getElementById("slide-three-linear-mobile")
             .getContext("2d");
           var slide_three_linear = new ChartV1(ctx_3_3, config.linear[5]);
+          var ctx_3_1_mobile = document.getElementById(
+            "slide-three-bar-mobile"
+          );
+          var slide_three_bar_mobile = new Chart(ctx_3_1_mobile, config.bar[5]);
+
+          var ctx_3_2_mobile = document.getElementById(
+            "slide-three-stacked-mobile"
+          );
+          var slide_three_bar_stacked_mobile = new Chart(
+            ctx_3_2_mobile,
+            config.stacked[5]
+          );
           shouldDrawChartMobile[index] = false;
         }
       }
@@ -1070,7 +1133,7 @@
         swiper.slideNext();
       }
       function slideToContact() {
-        swiper.slideTo(7);
+        swiper.slideTo(8);
       }
     </script>
   </body>
