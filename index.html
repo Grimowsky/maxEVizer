@@ -1090,7 +1090,7 @@
             config.stacked[3]
           );
           shouldDrawChartMobile[index] = false;
-        } else if (shouldDrawChartMobile[index] === true && index === 6) {
+        } else if (shouldDrawChartMobile[index] === true && index === 4) {
           var ctx_2_3 = document
             .getElementById("slide-two-linear-mobile")
             .getContext("2d");
@@ -1106,7 +1106,7 @@
             config.stacked[4]
           );
           shouldDrawChartMobile[index] = false;
-        } else if (shouldDrawChartMobile[index] === true && index === 8) {
+        } else if (shouldDrawChartMobile[index] === true && index === 6) {
           var ctx_3_3 = document
             .getElementById("slide-three-linear-mobile")
             .getContext("2d");
@@ -1175,8 +1175,8 @@
       };
       var shouldDrawChartMobile = {
         2: true,
+        4: true,
         6: true,
-        8: true,
       };
       swiper.on("slideChange", function () {
         drawChart(swiper.activeIndex, shouldDrawChart, shouldDrawChartMobile);
