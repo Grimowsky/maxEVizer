@@ -152,6 +152,7 @@ footer {
   letter-spacing: 2px;
   text-align: left;
   line-height: 24px;
+  height: 100%;
 }
 .slide-content-text p {
   padding-left: 15px;
@@ -529,6 +530,7 @@ div.col-2 {
   flex-grow: 1;
   margin-top: 80px;
   justify-content: center;
+  height: 100%;
 }
 
 .gallery-col {
@@ -540,7 +542,7 @@ div.col-2 {
   border: 3px solid #000;
   box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.3);
   width: 100%;
-  max-width: 16vw;
+  max-width: 20vw;
   object-fit: cover;
   filter: blur(1.5px);
 }
