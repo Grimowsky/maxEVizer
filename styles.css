@@ -647,6 +647,9 @@ div.col-2 {
     width: 50%;
     align-self: end;
   }
+  .wrapper {
+    width: 75%;
+  }
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
@@ -658,6 +661,9 @@ div.col-2 {
   }
   .flex {
     justify-content: normal;
+  }
+  .wrapper {
+    width: 75%;
   }
 }
 
